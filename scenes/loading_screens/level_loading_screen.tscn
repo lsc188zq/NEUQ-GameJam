@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b2j6pxcsav6xk"]
+
+[ext_resource type="PackedScene" uid="uid://bylvh6psebf7h" path="res://addons/maaacks_scene_loader/base/nodes/loading_screen/loading_screen.tscn" id="1_l7cte"]
+[ext_resource type="Script" uid="uid://cgphuatke6jd" path="res://scenes/loading_screens/loading_screen.gd" id="2_d0muy"]
+
+[node name="LevelLoadingScreen" unique_id=1716792690 instance=ExtResource("1_l7cte")]
+script = ExtResource("2_d0muy")
+_in_progress = "正在加载关卡……"
+_in_progress_waiting = "还在加载……"
+_in_progress_still_waiting = "还在加载……（已等 %d 秒）"
+_complete = "关卡加载完成！"

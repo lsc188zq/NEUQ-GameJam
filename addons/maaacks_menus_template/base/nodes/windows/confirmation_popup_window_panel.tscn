@@ -1,25 +1,102 @@
 [gd_scene format=3 uid="uid://cwt4p3bufkke5"]
 
-[ext_resource type="PackedScene" uid="uid://6gdbfi0172ji" path="res://addons/maaacks_menus_template/base/nodes/windows/popup_window_panel.tscn" id="1_y0s6v"]
+[ext_resource type="PackedScene" uid="uid://djd1otv7t1bd8" path="res://addons/maaacks_menus_template/base/nodes/windows/popup_parent.tscn" id="2_sedc5"]
 [ext_resource type="Script" uid="uid://bgthh72eu0du" path="res://addons/maaacks_menus_template/base/nodes/windows/confirmation_popup_window_panel.gd" id="2_y0s6v"]
+[ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_menus_template/base/nodes/utilities/capture_focus.gd" id="3_xjqo1"]
 
-[node name="ConfirmationPopupWindowPanel" unique_id=1482267070 instance=ExtResource("1_y0s6v")]
+[node name="ConfirmationPopupWindowPanel" type="PanelContainer" unique_id=1482267070]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -50.0
+offset_right = 80.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("2_y0s6v")
-confirm_button_text = "Confirm"
+parent_scene = ExtResource("2_sedc5")
 update_content = true
 title = "Confirm?"
 close_button_text = "Cancel"
 
-[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" parent_id_path=PackedInt32Array(1788474031) index="0" unique_id=1049966061]
-text = "Confirm?"
-
-[node name="MenuButtons" parent="ContentContainer/BoxContainer/MenuButtonsMargin" parent_id_path=PackedInt32Array(1413292752) index="0" unique_id=1371114575]
-vertical = false
-
-[node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0" unique_id=314526102]
-text = "Cancel"
-
-[node name="ConfirmButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1" unique_id=1052970550]
+[node name="ContentContainer" type="MarginContainer" parent="." unique_id=1755486830]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Confirm"
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="BoxContainer" type="BoxContainer" parent="ContentContainer" unique_id=394030069]
+layout_mode = 2
+vertical = true
+
+[node name="TitleMargin" type="MarginContainer" parent="ContentContainer/BoxContainer" unique_id=1262022916]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = -14
+theme_override_constants/margin_top = -14
+theme_override_constants/margin_right = -14
+theme_override_constants/margin_bottom = 8
+
+[node name="BoxContainer" type="BoxContainer" parent="ContentContainer/BoxContainer/TitleMargin" unique_id=1788474031]
+layout_mode = 2
+theme_override_constants/separation = 0
+vertical = true
+
+[node name="TitleLabel" type="Label" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" unique_id=1049966061]
+unique_name_in_owner = true
+layout_mode = 2
+text = "确定吗?"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" unique_id=33373596]
+layout_mode = 2
+
+[node name="BodyMargin" type="MarginContainer" parent="ContentContainer/BoxContainer" unique_id=590613964]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BoxContainer" type="BoxContainer" parent="ContentContainer/BoxContainer/BodyMargin" unique_id=1957884530]
+layout_mode = 2
+vertical = true
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="ContentContainer/BoxContainer/BodyMargin/BoxContainer" unique_id=617407155]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButtonsMargin" type="MarginContainer" parent="ContentContainer/BoxContainer" unique_id=1413292752]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+
+[node name="MenuButtons" type="BoxContainer" parent="ContentContainer/BoxContainer/MenuButtonsMargin" unique_id=1371114575]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+alignment = 1
+script = ExtResource("3_xjqo1")
+
+[node name="CloseButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" unique_id=314526102]
+unique_name_in_owner = true
+layout_mode = 2
+text = "取消
+"
+
+[node name="ConfirmButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" unique_id=1052970550]
+unique_name_in_owner = true
+layout_mode = 2
+text = "确认"

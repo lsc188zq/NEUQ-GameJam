@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://bbouirrwn8qih"]
+
+[ext_resource type="Script" uid="uid://eborw7q4b07h" path="res://addons/maaacks_menus_template/base/nodes/menus/options_menu/input/input_options_menu.gd" id="1_smcdr"]
+[ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_menus_template/base/nodes/utilities/capture_focus.gd" id="2_c5qoy"]
+[ext_resource type="PackedScene" uid="uid://csrdvpwqky401" path="res://scenes/menus/options_menu/input/input_icon_mapper.tscn" id="2_hyv0n"]
+[ext_resource type="PackedScene" uid="uid://bxp45814v6ydv" path="res://addons/maaacks_menus_template/base/nodes/menus/options_menu/input/input_actions_list.tscn" id="3_34wmf"]
+[ext_resource type="PackedScene" uid="uid://ci6wgl2ngd35n" path="res://addons/maaacks_menus_template/base/nodes/menus/options_menu/input/input_actions_tree.tscn" id="4_avrxf"]
+[ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_menus_template/base/nodes/windows/confirmation_popup_window_panel.tscn" id="5_pt75j"]
+[ext_resource type="PackedScene" uid="uid://6gdbfi0172ji" path="res://addons/maaacks_menus_template/base/nodes/windows/popup_window_panel.tscn" id="6_2nhfc"]
+[ext_resource type="PackedScene" uid="uid://dgravx3vt5g3i" path="res://addons/maaacks_menus_template/base/nodes/menus/options_menu/input/key_assignment_window.tscn" id="7_5n6hl"]
+
+[node name="Controls" type="MarginContainer" unique_id=294191899]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_smcdr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=539297323]
+layout_mode = 2
+script = ExtResource("2_c5qoy")
+search_depth = 5
+
+[node name="InputMappingContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1004992485]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/InputMappingContainer" unique_id=1142261578]
+layout_mode = 2
+text = "按键设置"
+horizontal_alignment = 1
+
+[node name="InputActionsList" parent="VBoxContainer/InputMappingContainer" unique_id=2089976301 node_paths=PackedStringArray("input_icon_mapper") instance=ExtResource("3_34wmf")]
+unique_name_in_owner = true
+layout_mode = 2
+action_group_names = Array[String](["主要", "次要", "第三"])
+input_action_names = Array[StringName]([&"move_up", &"move_down", &"move_left", &"move_right", &"interact", &"pause"])
+readable_action_names = Array[String](["向上", "向下", "向左", "向右", "交互", "暂停"])
+input_icon_mapper = NodePath("../../../InputIconMapper")
+action_name_map = {
+&"interact": "交互",
+&"move_down": "向下",
+&"move_left": "向左",
+&"move_right": "向右",
+&"move_up": "向上",
+&"pause": "暂停"
+}
+
+[node name="InputActionsTree" parent="VBoxContainer/InputMappingContainer" unique_id=780755880 node_paths=PackedStringArray("input_icon_mapper") instance=ExtResource("4_avrxf")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+input_action_names = Array[StringName]([&"move_up", &"move_down", &"move_left", &"move_right", &"interact", &"pause"])
+readable_action_names = Array[String](["向上", "向下", "向左", "向右", "交互", "暂停"])
+input_icon_mapper = NodePath("../../../InputIconMapper")
+action_name_map = {
+&"interact": "交互",
+&"move_down": "向下",
+&"move_left": "向左",
+&"move_right": "向右",
+&"move_up": "向上",
+&"pause": "暂停"
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/InputMappingContainer" unique_id=668442458]
+layout_mode = 2
+alignment = 1
+
+[node name="ResetButton" type="Button" parent="VBoxContainer/InputMappingContainer/HBoxContainer" unique_id=14998312]
+unique_name_in_owner = true
+layout_mode = 2
+text = "重置为默认"
+
+[node name="KeyDeletionConfirmation" parent="." unique_id=1120617858 instance=ExtResource("5_pt75j")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(420, 200)
+layout_mode = 2
+title = "删除按键"
+text = "确定要把 KEY 从 ACTION 中删除吗？"
+close_button_text = "取消"
+
+[node name="ResetConfirmation" parent="." unique_id=1967398625 instance=ExtResource("5_pt75j")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(420, 200)
+layout_mode = 2
+title = "重置按键"
+text = "确定要把所有按键恢复为默认吗？"
+close_button_text = "取消"
+
+[node name="OneInputMinimumMessage" parent="." unique_id=1110523665 instance=ExtResource("6_2nhfc")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(420, 200)
+layout_mode = 2
+update_content = true
+title = "无法删除"
+text = "每个操作至少要保留一个按键。"
+close_button_text = "知道了"
+
+[node name="AlreadyAssignedMessage" parent="." unique_id=574954440 instance=ExtResource("6_2nhfc")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(420, 200)
+layout_mode = 2
+update_content = true
+title = "按键冲突"
+text = "这个按键已经被其它操作占用了。"
+close_button_text = "知道了"
+
+[node name="KeyAssignmentWindow" parent="." unique_id=751125317 instance=ExtResource("7_5n6hl")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(420, 200)
+layout_mode = 2
+title = "设置按键"
+close_button_text = "取消"
+
+[node name="InputIconMapper" parent="." unique_id=1326793573 instance=ExtResource("2_hyv0n")]
+
+[connection signal="already_assigned" from="VBoxContainer/InputMappingContainer/InputActionsList" to="." method="_on_input_actions_list_already_assigned"]
+[connection signal="button_clicked" from="VBoxContainer/InputMappingContainer/InputActionsList" to="." method="_on_input_actions_list_button_clicked"]
+[connection signal="minimum_reached" from="VBoxContainer/InputMappingContainer/InputActionsList" to="." method="_on_input_actions_list_minimum_reached"]
+[connection signal="add_button_clicked" from="VBoxContainer/InputMappingContainer/InputActionsTree" to="." method="_on_input_actions_tree_add_button_clicked"]
+[connection signal="already_assigned" from="VBoxContainer/InputMappingContainer/InputActionsTree" to="." method="_on_input_actions_tree_already_assigned"]
+[connection signal="minimum_reached" from="VBoxContainer/InputMappingContainer/InputActionsTree" to="." method="_on_input_actions_tree_minimum_reached"]
+[connection signal="remove_button_clicked" from="VBoxContainer/InputMappingContainer/InputActionsTree" to="." method="_on_input_actions_tree_remove_button_clicked"]

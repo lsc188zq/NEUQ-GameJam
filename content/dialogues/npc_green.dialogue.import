@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://0bjrcmxtawl6"
+path="res://.godot/imported/npc_green.dialogue-c8dab7b3658024c6d9dd91d0c964e7a1.tres"
+
+[deps]
+
+source_file="res://content/dialogues/npc_green.dialogue"
+dest_files=["res://.godot/imported/npc_green.dialogue-c8dab7b3658024c6d9dd91d0c964e7a1.tres"]
+
+[params]
+
+defaults=true

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="NEUQ-GameJam"
+run/main_scene="res://scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,16 +21,23 @@ buses/default_bus_layout="uid://b352vc4e74a37"
 
 [autoload]
 
-DialogueManager="*uid://c3rodes2l3gxb"
 QuestSystem="*uid://b77kvbliweux5"
-_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 ProjectUISoundController="*uid://cc37235kj4384"
 SceneLoader="*uid://cpehcs7n5c62p"
 ProjectMusicController="*uid://r5t485lr3p7t"
+DialogueManager="*uid://c3rodes2l3gxb"
+GameState="*res://scripts/autoload/game_state.gd"
+_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 
 [clean_copy_examples]
 
 examples_paths=Array[String](["res://addons/maaacks_scene_loader/examples/", "res://addons/maaacks_menus_template/examples/"])
+copy_path="res://"
+
+[dialogue_manager]
+
+runtime/balloon_path="res://scenes/ui/dialogue_balloon.tscn"
+runtime/state_autoload_shortcuts=["GameState"]
 
 [display]
 
@@ -77,17 +85,31 @@ interact={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
 }
+pause={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194305,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [internationalization]
 
 locale/translations=PackedStringArray("res://addons/maaacks_menus_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_menus_template/base/translations/menus_translations.fr.translation")
+locale/translations_pot_files=PackedStringArray("res://content/dialogues/npc_green.dialogue")
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="wall"
+2d_physics/layer_3="npc"
+2d_physics/layer_4="interactable"
 
 [maaacks_menus_template]
 
 disable_install_wizard=true
-main_menu_scene_path="res://addons/maaacks_menus_template/examples/scenes/menus/main_menu/main_menu.tscn"
-game_scene_path=""
-ending_scene_path="res://addons/maaacks_menus_template/examples/scenes/end_credits/end_credits.tscn"
+main_menu_scene_path="res://scenes/menus/main_menu/main_menu.tscn"
+game_scene_path="res://scenes/world/world.tscn"
+ending_scene_path="res://scenes/end_credits/end_credits.tscn"
+copy_path="res://"
 
 [maaacks_music_controller]
 
@@ -95,7 +117,7 @@ disable_install_audio_busses=true
 
 [maaacks_scene_loader]
 
-loading_scene_path="res://addons/maaacks_scene_loader/examples/scenes/loading_screens/loading_screen.tscn"
+loading_scene_path="res://scenes/loading_screens/loading_screen.tscn"
 
 [maaacks_ui_sound_controller]
 

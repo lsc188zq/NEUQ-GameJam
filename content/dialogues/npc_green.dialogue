@@ -1,0 +1,25 @@
+using GameState
+~ start
+if GameState.get_flag("见过小绿面")==false:
+	$> GameState.set_flag("见过小绿面",true)
+	学长: 你好，是新来的同学吧？有兴趣了解我们NEUQ-ACM俱乐部吗
+	- 我再看看吧。 => watch
+	- 好呀，我很有兴趣？ => introduce
+else:
+	学长: 又见面了呀？考虑的怎么样了
+	- 我只是路过。 => watch
+	- 好呀，我很有兴趣？ => introduce
+
+~ watch
+
+学长: 不要紧，你先去其它地方看看吧
+
+=> END
+
+
+~ introduce
+
+学长: 啊，是这样。首先，我来说一下...........
+你: （学长叽里咕噜说了好多，臭打A的都这样吗）
+
+=> END
