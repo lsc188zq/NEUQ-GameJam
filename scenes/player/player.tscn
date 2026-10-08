@@ -396,12 +396,13 @@ motion_mode = 1
 script = ExtResource("1_gmlin")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1616243748]
-position = Vector2(0, 10)
+position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_kcdqi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=627472248]
 sprite_frames = SubResource("SpriteFrames_6vy81")
 animation = &"run_up"
+offset = Vector2(0, -16)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1352949297]
 zoom = Vector2(3, 3)
@@ -411,7 +412,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=333098408]
-position = Vector2(0, 3)
+position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_6vy81")
 
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_area_entered"]

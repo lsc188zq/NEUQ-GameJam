@@ -401,9 +401,10 @@ dialogue = ExtResource("2_1cego")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1757066649]
 sprite_frames = SubResource("SpriteFrames_6vy81")
 animation = &"run_up"
+offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1647124346]
-position = Vector2(0, 10)
+position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_kcdqi")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=107628323]
@@ -411,5 +412,5 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1057216630]
-position = Vector2(0, 5)
+position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_ew3nv")

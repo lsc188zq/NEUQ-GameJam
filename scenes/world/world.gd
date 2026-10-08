@@ -13,7 +13,8 @@ extends Node2D
 const TILE_SIZE: int = 16
 
 ## 地板层。相机边界按它画过的范围来算。
-@onready var ground: TileMapLayer = $Ground
+## ⚠️ 路径跟着场景结构走：Ground 在 Classroom 底下（见 world.tscn 的节点树）。
+@onready var ground: TileMapLayer = $Classroom/Ground
 
 ## 玩家身上那台相机。
 @onready var camera: Camera2D = $Player/Camera2D

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dbn6ls61ipdxk"]
+
+[ext_resource type="Script" uid="uid://brkbwoil4jj0k" path="res://scripts/components/furniture_item.gd" id="1_88v7s"]
+
+[node name="FurnitureItem" type="StaticBody2D" unique_id=355936102]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_88v7s")
+footprint_height = null
+start_cue = null
+interact_padding = null
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=972927010]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2032063069]
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=1390926807]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=245515481]

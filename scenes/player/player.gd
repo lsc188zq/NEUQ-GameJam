@@ -126,9 +126,35 @@ func _on_area_exited(outarea: Area2D) -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		if nearby.is_empty() == false:
-			var nearest = nearby[0]
-			if is_instance_valid(nearest) and nearest.has_method("interact"):
-				nearest.interact()
+		var target := _find_nearest_interactable()
+		if target != null:
+			target.interact()
+
+
+## 从附近的目标里挑【真正离得最近】的那个。
+##
+## ⚠️ 不能直接取 nearby[0]：nearby 是按「进入互动区的先后」排的，不是按距离。
+##    站在桌子和椅子中间时，可能桌子先进来、椅子后进来，
+##    而桌子没配剧本 → 按 E 什么都不会发生，
+##    旁边那把明明有剧本的椅子反而没反应（这个 bug 是实测出来的）。
+##
+## 距离用「两个原点之间」的距离。家具的原点在脚下中点，
+## 所以这个距离约等于「脚到脚的远近」，够用了。
+func _find_nearest_interactable() -> Node:
+	var best: Node = null
+	var best_dist: float = INF
+	# 倒着遍历，顺便把已经被释放的节点从 nearby 里清掉
+	for i in range(nearby.size() - 1, -1, -1):
+		var n: Node = nearby[i]
+		if not is_instance_valid(n):
+			nearby.remove_at(i)
+			continue
+		if not n.has_method("interact"):
+			continue
+		var d: float = global_position.distance_squared_to(n.global_position)
+		if d < best_dist:
+			best_dist = d
+			best = n
+	return best
 		
 		
