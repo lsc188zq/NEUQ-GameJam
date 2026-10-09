@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://byjvdhrrehyik"]
+
+[ext_resource type="Script" uid="uid://brkbwoil4jj0k" path="res://scripts/components/furniture_item.gd" id="1_rfgh2"]
+[ext_resource type="Texture2D" uid="uid://babj5fklpiij3" path="res://assets/sprites/furniture/desks/desk_computer_01.png" id="2_vuoqb"]
+[ext_resource type="Resource" uid="uid://c0smenbq0dpd4" path="res://content/dialogues/books.dialogue" id="3_yyecw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aj85k"]
+size = Vector2(44, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp0gq"]
+size = Vector2(28, 10)
+
+[node name="Books" type="StaticBody2D" unique_id=1070079723]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_rfgh2")
+texture = ExtResource("2_vuoqb")
+blocks_movement = false
+dialogue = ExtResource("3_yyecw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=972927010]
+texture = ExtResource("2_vuoqb")
+offset = Vector2(0, -11.5)
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=1390926807]
+visible = false
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=245515481]
+visible = false
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_aj85k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=523130932]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_lp0gq")
+disabled = true

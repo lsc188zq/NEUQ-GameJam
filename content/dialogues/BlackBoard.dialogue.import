@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bgyf0s45un1hn"
+path="res://.godot/imported/BlackBoard.dialogue-9e4c0775077b170eccf64c1a1603efb9.tres"
+
+[deps]
+
+source_file="res://content/dialogues/BlackBoard.dialogue"
+dest_files=["res://.godot/imported/BlackBoard.dialogue-9e4c0775077b170eccf64c1a1603efb9.tres"]
+
+[params]
+
+defaults=true

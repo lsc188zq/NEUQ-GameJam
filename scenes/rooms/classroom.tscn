@@ -1,0 +1,143 @@
+[gd_scene format=4 uid="uid://buapkwkqnc30f"]
+
+[ext_resource type="PackedScene" uid="uid://bgpp7irtnqd4i" path="res://scenes/furniture/study_place.tscn" id="1_dm2uf"]
+[ext_resource type="PackedScene" uid="uid://dbn6ls61ipdxk" path="res://scenes/furniture/furniture_item.tscn" id="2_4qvwg"]
+[ext_resource type="Texture2D" uid="uid://b48ms7ow7xve5" path="res://assets/sprites/furniture/appliances/vending_machine.png" id="3_2aw36"]
+[ext_resource type="Resource" uid="uid://b8p0hr37djv3k" path="res://content/dialogues/Locker.dialogue" id="4_4sy15"]
+[ext_resource type="Texture2D" uid="uid://c37nbasbn8kn2" path="res://assets/sprites/furniture/appliances/computer_terminal.png" id="5_qh2ha"]
+[ext_resource type="Texture2D" uid="uid://bgipodr3te4cr" path="res://assets/sprites/furniture/storage/cabinet_wood_01.png" id="6_bxui5"]
+[ext_resource type="Resource" uid="uid://ihhfe6yn1sf5" path="res://content/dialogues/Terminal.dialogue" id="6_mdtwe"]
+[ext_resource type="Texture2D" uid="uid://boj2k103fnsjw" path="res://assets/sprites/furniture/lights/lamp_red_01.png" id="7_kajcs"]
+[ext_resource type="Texture2D" uid="uid://b7j23yxtgt0ui" path="res://assets/sprites/furniture/plants/plant_small.png" id="8_5xgpc"]
+[ext_resource type="Resource" uid="uid://clkgeppevwwha" path="res://content/dialogues/Cabinet.dialogue" id="8_46jgj"]
+[ext_resource type="Texture2D" uid="uid://d1voy5x6o3cl6" path="res://assets/sprites/furniture/decor/blackboard.png" id="9_hmu6g"]
+[ext_resource type="Texture2D" uid="uid://vpabirjdgydi" path="res://assets/sprites/furniture/decor/clock.png" id="10_2kqjj"]
+[ext_resource type="Resource" uid="uid://ds64kw2i2pdme" path="res://content/dialogues/Lamp.dialogue" id="10_14hsp"]
+[ext_resource type="Resource" uid="uid://buv7nocus241j" path="res://content/dialogues/Clock.dialogue" id="10_bxui5"]
+[ext_resource type="Resource" uid="uid://by2irv26utvty" path="res://content/dialogues/MapWorld.dialogue" id="11_4qvwg"]
+[ext_resource type="Texture2D" uid="uid://0w6prvy48u07" path="res://assets/sprites/furniture/decor/map_world.png" id="11_pu813"]
+[ext_resource type="Texture2D" uid="uid://ct5qh3bhar22v" path="res://assets/sprites/furniture/decor/map_poster_long.png" id="12_4sy15"]
+[ext_resource type="Resource" uid="uid://cg5hwrtkbstmj" path="res://content/dialogues/PlantSmall.dialogue" id="12_iawkn"]
+[ext_resource type="Texture2D" uid="uid://ducs4suc2vbou" path="res://assets/sprites/furniture/decor/bulletin_board.png" id="13_mdtwe"]
+[ext_resource type="Texture2D" uid="uid://ecq128xc31no" path="res://assets/sprites/furniture/decor/poster_wall.png" id="14_46jgj"]
+[ext_resource type="Resource" uid="uid://bgyf0s45un1hn" path="res://content/dialogues/BlackBoard.dialogue" id="14_rjssq"]
+[ext_resource type="PackedScene" uid="uid://28sc1x6yhdv7" path="res://scenes/furniture/bookshelf.tscn" id="15_14hsp"]
+[ext_resource type="Resource" uid="uid://blyejehdywpq7" path="res://content/dialogues/BulletinBoard.dialogue" id="15_om2mg"]
+[ext_resource type="PackedScene" uid="uid://83056kt3ngqq" path="res://scenes/furniture/chair_wood.tscn" id="16_dm2uf"]
+[ext_resource type="PackedScene" uid="uid://dqgqgs4eynh8u" path="res://scenes/furniture/plant_palm.tscn" id="16_iawkn"]
+[ext_resource type="TileSet" uid="uid://c1r8ggofa7sih" path="res://assets/tilesets/room_tileset.tres" id="17_rjssq"]
+[ext_resource type="Resource" uid="uid://bk6f66b4lcpil" path="res://content/dialogues/PosterWall.dialogue" id="18_kajcs"]
+[ext_resource type="Resource" uid="uid://b4e7ba6jsvojl" path="res://content/dialogues/chore_desks.dialogue" id="20_4sy15"]
+
+[node name="Classroom" type="Node2D" unique_id=1109104143]
+y_sort_enabled = true
+
+[node name="Furniture" type="Node2D" parent="." unique_id=266145462]
+y_sort_enabled = true
+
+[node name="StudyPlace6" parent="Furniture" unique_id=874291615 instance=ExtResource("1_dm2uf")]
+position = Vector2(-87, 26)
+
+[node name="StudyPlace5" parent="Furniture" unique_id=329742281 instance=ExtResource("1_dm2uf")]
+position = Vector2(-39, 28)
+
+[node name="StudyPlace4" parent="Furniture" unique_id=1394419350 instance=ExtResource("1_dm2uf")]
+position = Vector2(-137, 28)
+
+[node name="StudyPlace3" parent="Furniture" unique_id=290771257 instance=ExtResource("1_dm2uf")]
+position = Vector2(-40, -54)
+
+[node name="StudyPlace2" parent="Furniture" unique_id=1119865367 instance=ExtResource("1_dm2uf")]
+position = Vector2(-89, -56)
+
+[node name="StudyPlace" parent="Furniture" unique_id=2028832569 instance=ExtResource("1_dm2uf")]
+position = Vector2(-137, -57)
+
+[node name="Locker" parent="Furniture" unique_id=355936102 instance=ExtResource("2_4qvwg")]
+position = Vector2(179, -58)
+texture = ExtResource("3_2aw36")
+dialogue = ExtResource("4_4sy15")
+
+[node name="Terminal" parent="Furniture" unique_id=1556270438 instance=ExtResource("2_4qvwg")]
+position = Vector2(154, 30)
+texture = ExtResource("5_qh2ha")
+dialogue = ExtResource("6_mdtwe")
+
+[node name="Cabinet" parent="Furniture" unique_id=980370018 instance=ExtResource("2_4qvwg")]
+position = Vector2(-170, -84)
+texture = ExtResource("6_bxui5")
+dialogue = ExtResource("8_46jgj")
+
+[node name="Lamp" parent="Furniture" unique_id=1004345764 instance=ExtResource("2_4qvwg")]
+position = Vector2(155, 14)
+texture = ExtResource("7_kajcs")
+dialogue = ExtResource("10_14hsp")
+
+[node name="PlantSmall" parent="Furniture" unique_id=541238849 instance=ExtResource("2_4qvwg")]
+position = Vector2(154, 47)
+texture = ExtResource("8_5xgpc")
+dialogue = ExtResource("12_iawkn")
+
+[node name="Blackboard" parent="Furniture" unique_id=1744811380 instance=ExtResource("2_4qvwg")]
+position = Vector2(18, -108)
+texture = ExtResource("9_hmu6g")
+dialogue = ExtResource("14_rjssq")
+
+[node name="Clock" parent="Furniture" unique_id=1386842034 instance=ExtResource("2_4qvwg")]
+position = Vector2(-77, -118)
+texture = ExtResource("10_2kqjj")
+dialogue = ExtResource("10_bxui5")
+
+[node name="MapWorld" parent="Furniture" unique_id=1612265740 instance=ExtResource("2_4qvwg")]
+position = Vector2(169, -109)
+texture = ExtResource("11_pu813")
+dialogue = ExtResource("11_4qvwg")
+
+[node name="Chore_Desks" parent="Furniture" unique_id=1964907153 instance=ExtResource("2_4qvwg")]
+position = Vector2(-150, -100)
+texture = ExtResource("12_4sy15")
+dialogue = ExtResource("20_4sy15")
+
+[node name="BulletinBoard" parent="Furniture" unique_id=1504394361 instance=ExtResource("2_4qvwg")]
+position = Vector2(86, -112)
+texture = ExtResource("13_mdtwe")
+dialogue = ExtResource("15_om2mg")
+
+[node name="PosterWall" parent="Furniture" unique_id=1521496105 instance=ExtResource("2_4qvwg")]
+position = Vector2(-53, -111)
+texture = ExtResource("14_46jgj")
+dialogue = ExtResource("18_kajcs")
+
+[node name="Bookshelf01" parent="Furniture" unique_id=455407161 instance=ExtResource("15_14hsp")]
+position = Vector2(198, -12)
+
+[node name="Bookshelf02" parent="Furniture" unique_id=127709603 instance=ExtResource("15_14hsp")]
+position = Vector2(177, -12)
+
+[node name="Bookshelf03" parent="Furniture" unique_id=876903818 instance=ExtResource("15_14hsp")]
+position = Vector2(156, -12)
+
+[node name="PlantPalm01" parent="Furniture" unique_id=1761986098 instance=ExtResource("16_iawkn")]
+position = Vector2(-172, 111)
+
+[node name="PlantPalm02" parent="Furniture" unique_id=956498075 instance=ExtResource("16_iawkn")]
+position = Vector2(-50, 112)
+
+[node name="ChairWood" parent="Furniture" unique_id=2132103463 instance=ExtResource("16_dm2uf")]
+position = Vector2(136, 31)
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1505183607]
+z_index = -10
+tile_map_data = PackedByteArray("AADz//n/AAAMAAoAAAD0//n/AAANAAoAAAD1//n/AAALAAoAAAD2//n/AAAMAAoAAAD3//n/AAANAAoAAAD4//n/AAALAAoAAAD5//n/AAAMAAoAAAD6//n/AAANAAoAAAD7//n/AAALAAoAAAD8//n/AAAMAAoAAAD9//n/AAANAAoAAAD+//n/AAALAAoAAAD///n/AAAMAAoAAAAAAPn/AAANAAoAAAABAPn/AAALAAoAAAACAPn/AAAMAAoAAAADAPn/AAANAAoAAAAEAPn/AAALAAoAAAAFAPn/AAAMAAoAAAAGAPn/AAANAAoAAAAHAPn/AAALAAoAAAAIAPn/AAAMAAoAAAAJAPn/AAANAAoAAAAKAPn/AAALAAoAAAAKAPr/AAALAAkAAAAKAPv/AAALAAoAAAAJAPv/AAANAAoAAAAIAPv/AAAMAAoAAAAHAPv/AAALAAoAAAAGAPv/AAANAAoAAAAFAPv/AAAMAAoAAAAEAPv/AAALAAoAAAADAPv/AAANAAoAAAACAPv/AAAMAAoAAAABAPz/AAALAAkAAAAAAPz/AAANAAkAAAD///z/AAAMAAkAAAD+//z/AAALAAkAAAAEAP7/AAALAAkAAAAFAP7/AAAMAAkAAAAGAP7/AAANAAkAAAAEAP//AAALAAoAAAAFAP//AAAMAAoAAAAGAP//AAANAAoAAADy//j/AAALAAkAAADy//n/AAALAAoAAADy//r/AAALAAkAAADy//v/AAALAAoAAADy//z/AAALAAkAAADy//3/AAALAAoAAADy//7/AAALAAkAAADy////AAALAAoAAADy/wAAAAALAAkAAADy/wEAAAALAAoAAADy/wIAAAALAAkAAADy/wMAAAALAAoAAADy/wQAAAALAAkAAADy/wUAAAALAAoAAADy/wYAAAALAAkAAADy/wcAAAALAAoAAADz//j/AAAMAAkAAADz//r/AAAMAAkAAADz//v/AAAMAAoAAADz//z/AAAMAAkAAADz//3/AAAMAAoAAADz//7/AAAMAAkAAADz////AAAMAAoAAADz/wAAAAAMAAkAAADz/wEAAAAMAAoAAADz/wIAAAAMAAkAAADz/wMAAAAMAAoAAADz/wQAAAAMAAkAAADz/wUAAAAMAAoAAADz/wYAAAAMAAkAAADz/wcAAAAMAAoAAAD0//j/AAANAAkAAAD0//r/AAANAAkAAAD0//v/AAANAAoAAAD0//z/AAANAAkAAAD0//3/AAANAAoAAAD0//7/AAANAAkAAAD0////AAANAAoAAAD0/wAAAAANAAkAAAD0/wEAAAANAAoAAAD0/wIAAAANAAkAAAD0/wMAAAANAAoAAAD0/wQAAAANAAkAAAD0/wUAAAANAAoAAAD0/wYAAAANAAkAAAD0/wcAAAANAAoAAAD1//j/AAALAAkAAAD1//r/AAALAAkAAAD1//v/AAALAAoAAAD1//z/AAALAAkAAAD1//3/AAALAAoAAAD1//7/AAALAAkAAAD1////AAALAAoAAAD1/wAAAAALAAkAAAD1/wEAAAALAAoAAAD1/wIAAAALAAkAAAD1/wMAAAALAAoAAAD1/wQAAAALAAkAAAD1/wUAAAALAAoAAAD1/wYAAAALAAkAAAD1/wcAAAALAAoAAAD2//j/AAAMAAkAAAD2//r/AAAMAAkAAAD2//v/AAAMAAoAAAD2//z/AAAMAAkAAAD2//3/AAAMAAoAAAD2//7/AAAMAAkAAAD2////AAAMAAoAAAD2/wAAAAAMAAkAAAD2/wEAAAAMAAoAAAD2/wIAAAAMAAkAAAD2/wMAAAAMAAoAAAD2/wQAAAAMAAkAAAD2/wUAAAAMAAoAAAD2/wYAAAAMAAkAAAD2/wcAAAAMAAoAAAD3//j/AAANAAkAAAD3//r/AAANAAkAAAD3//v/AAANAAoAAAD3//z/AAANAAkAAAD3//3/AAANAAoAAAD3//7/AAANAAkAAAD3////AAANAAoAAAD3/wAAAAANAAkAAAD3/wEAAAANAAoAAAD3/wIAAAANAAkAAAD3/wMAAAANAAoAAAD3/wQAAAANAAkAAAD3/wUAAAANAAoAAAD3/wYAAAANAAkAAAD3/wcAAAANAAoAAAD4//j/AAALAAkAAAD4//r/AAALAAkAAAD4//v/AAALAAoAAAD4//z/AAALAAkAAAD4//3/AAALAAoAAAD4//7/AAALAAkAAAD4////AAALAAoAAAD4/wAAAAALAAkAAAD4/wEAAAALAAoAAAD4/wIAAAALAAkAAAD4/wMAAAALAAoAAAD4/wQAAAALAAkAAAD4/wUAAAALAAoAAAD4/wYAAAALAAkAAAD4/wcAAAALAAoAAAD5//j/AAAMAAkAAAD5//r/AAAMAAkAAAD5//v/AAAMAAoAAAD5//z/AAAMAAkAAAD5//3/AAAMAAoAAAD5//7/AAAMAAkAAAD5////AAAMAAoAAAD5/wAAAAAMAAkAAAD5/wEAAAAMAAoAAAD5/wIAAAAMAAkAAAD5/wMAAAAMAAoAAAD5/wQAAAAMAAkAAAD5/wUAAAAMAAoAAAD5/wYAAAAMAAkAAAD5/wcAAAAMAAoAAAD6//j/AAANAAkAAAD6//r/AAANAAkAAAD6//v/AAANAAoAAAD6//z/AAANAAkAAAD6//3/AAANAAoAAAD6//7/AAANAAkAAAD6////AAANAAoAAAD6/wAAAAANAAkAAAD6/wEAAAANAAoAAAD6/wIAAAANAAkAAAD6/wMAAAANAAoAAAD6/wQAAAANAAkAAAD6/wUAAAANAAoAAAD6/wYAAAANAAkAAAD6/wcAAAANAAoAAAD7//j/AAALAAkAAAD7//r/AAALAAkAAAD7//v/AAALAAoAAAD7//z/AAALAAkAAAD7//3/AAALAAoAAAD7//7/AAALAAkAAAD7////AAALAAoAAAD7/wAAAAALAAkAAAD7/wEAAAALAAoAAAD7/wIAAAALAAkAAAD7/wMAAAALAAoAAAD7/wQAAAALAAkAAAD7/wUAAAALAAoAAAD7/wYAAAALAAkAAAD7/wcAAAALAAoAAAD8//j/AAAMAAkAAAD8//r/AAAMAAkAAAD8//v/AAAMAAoAAAD8//z/AAAMAAkAAAD8//3/AAAMAAoAAAD8//7/AAAMAAkAAAD8////AAAMAAoAAAD8/wAAAAAMAAkAAAD8/wEAAAAMAAoAAAD8/wIAAAAMAAkAAAD8/wMAAAAMAAoAAAD8/wQAAAAMAAkAAAD8/wUAAAAMAAoAAAD8/wYAAAAMAAkAAAD8/wcAAAAMAAoAAAD9//j/AAANAAkAAAD9//r/AAANAAkAAAD9//v/AAANAAoAAAD9//z/AAANAAkAAAD9//3/AAANAAoAAAD9//7/AAANAAkAAAD9////AAANAAoAAAD9/wAAAAANAAkAAAD9/wEAAAANAAoAAAD9/wIAAAANAAkAAAD9/wMAAAANAAoAAAD9/wQAAAANAAkAAAD9/wUAAAANAAoAAAD9/wYAAAANAAkAAAD9/wcAAAANAAoAAAD+//j/AAALAAkAAAD+//r/AAALAAkAAAD+//v/AAALAAoAAAD+//3/AAALAAoAAAD+//7/AAALAAkAAAD+////AAALAAoAAAD+/wAAAAALAAkAAAD+/wEAAAALAAoAAAD+/wIAAAALAAkAAAD+/wMAAAALAAoAAAD+/wQAAAALAAkAAAD+/wUAAAALAAoAAAD+/wYAAAALAAkAAAD+/wcAAAALAAoAAAD///j/AAAMAAkAAAD///r/AAAMAAkAAAD///v/AAAMAAoAAAD///3/AAAMAAoAAAD///7/AAAMAAkAAAD/////AAAMAAoAAAD//wAAAAAMAAkAAAD//wEAAAAMAAoAAAD//wIAAAAMAAkAAAD//wMAAAAMAAoAAAD//wQAAAAMAAkAAAD//wUAAAAMAAoAAAD//wYAAAAMAAkAAAD//wcAAAAMAAoAAAAAAPj/AAANAAkAAAAAAPr/AAANAAkAAAAAAPv/AAANAAoAAAAAAP3/AAANAAoAAAAAAP7/AAANAAkAAAAAAP//AAANAAoAAAAAAAAAAAANAAkAAAAAAAEAAAANAAoAAAAAAAIAAAANAAkAAAAAAAMAAAANAAoAAAAAAAQAAAANAAkAAAAAAAUAAAANAAoAAAAAAAYAAAANAAkAAAAAAAcAAAANAAoAAAABAPj/AAALAAkAAAABAPr/AAALAAkAAAABAPv/AAALAAoAAAABAP3/AAALAAoAAAABAP7/AAALAAkAAAABAP//AAALAAoAAAABAAAAAAALAAkAAAABAAEAAAALAAoAAAABAAIAAAALAAkAAAABAAMAAAALAAoAAAABAAQAAAALAAkAAAABAAUAAAALAAoAAAABAAYAAAALAAkAAAABAAcAAAALAAoAAAACAPj/AAAMAAkAAAACAPr/AAAMAAkAAAACAPz/AAAMAAkAAAACAP3/AAAMAAoAAAACAP7/AAAMAAkAAAACAP//AAAMAAoAAAACAAAAAAAMAAkAAAACAAEAAAAMAAoAAAACAAIAAAAMAAkAAAACAAMAAAAMAAoAAAACAAQAAAAMAAkAAAACAAUAAAAMAAoAAAACAAYAAAAMAAkAAAACAAcAAAAMAAoAAAADAPj/AAANAAkAAAADAPr/AAANAAkAAAADAPz/AAANAAkAAAADAP3/AAANAAoAAAADAP7/AAANAAkAAAADAP//AAANAAoAAAADAAAAAAANAAkAAAADAAEAAAANAAoAAAADAAIAAAANAAkAAAADAAMAAAANAAoAAAADAAQAAAANAAkAAAADAAUAAAANAAoAAAADAAYAAAANAAkAAAADAAcAAAANAAoAAAAEAPj/AAALAAkAAAAEAPr/AAALAAkAAAAEAPz/AAALAAkAAAAEAP3/AAALAAoAAAAEAAAAAAALAAkAAAAEAAEAAAALAAoAAAAEAAIAAAALAAkAAAAEAAMAAAALAAoAAAAEAAQAAAALAAkAAAAEAAUAAAALAAoAAAAEAAYAAAALAAkAAAAEAAcAAAALAAoAAAAFAPj/AAAMAAkAAAAFAPr/AAAMAAkAAAAFAPz/AAAMAAkAAAAFAP3/AAAMAAoAAAAFAAAAAAAMAAkAAAAFAAEAAAAMAAoAAAAFAAIAAAAMAAkAAAAFAAMAAAAMAAoAAAAFAAQAAAAMAAkAAAAFAAUAAAAMAAoAAAAFAAYAAAAMAAkAAAAFAAcAAAAMAAoAAAAGAPj/AAANAAkAAAAGAPr/AAANAAkAAAAGAPz/AAANAAkAAAAGAP3/AAANAAoAAAAGAAAAAAANAAkAAAAGAAEAAAANAAoAAAAGAAIAAAANAAkAAAAGAAMAAAANAAoAAAAGAAQAAAANAAkAAAAGAAUAAAANAAoAAAAGAAYAAAANAAkAAAAGAAcAAAANAAoAAAAHAPj/AAALAAkAAAAHAPr/AAALAAkAAAAHAPz/AAALAAkAAAAHAP3/AAALAAoAAAAHAP7/AAALAAkAAAAHAP//AAALAAoAAAAHAAAAAAALAAkAAAAHAAEAAAALAAoAAAAHAAIAAAALAAkAAAAHAAMAAAALAAoAAAAHAAQAAAALAAkAAAAHAAUAAAALAAoAAAAHAAYAAAALAAkAAAAHAAcAAAALAAoAAAAIAPj/AAAMAAkAAAAIAPr/AAAMAAkAAAAIAPz/AAAMAAkAAAAIAP3/AAAMAAoAAAAIAP7/AAAMAAkAAAAIAP//AAAMAAoAAAAIAAAAAAAMAAkAAAAIAAEAAAAMAAoAAAAIAAIAAAAMAAkAAAAIAAMAAAAMAAoAAAAIAAQAAAAMAAkAAAAIAAUAAAAMAAoAAAAIAAYAAAAMAAkAAAAIAAcAAAAMAAoAAAAJAPj/AAANAAkAAAAJAPr/AAANAAkAAAAJAPz/AAANAAkAAAAJAP3/AAANAAoAAAAJAP7/AAANAAkAAAAJAP//AAANAAoAAAAJAAAAAAANAAkAAAAJAAEAAAANAAoAAAAJAAIAAAANAAkAAAAJAAMAAAANAAoAAAAJAAQAAAANAAkAAAAJAAUAAAANAAoAAAAJAAYAAAANAAkAAAAJAAcAAAANAAoAAAAKAPj/AAALAAkAAAAKAPz/AAALAAkAAAAKAP3/AAALAAoAAAAKAP7/AAALAAkAAAAKAP//AAALAAoAAAAKAAAAAAALAAkAAAAKAAEAAAALAAoAAAAKAAIAAAALAAkAAAAKAAMAAAALAAoAAAAKAAQAAAALAAkAAAAKAAUAAAALAAoAAAAKAAYAAAALAAkAAAAKAAcAAAALAAoAAAALAPj/AAAMAAkAAAALAPn/AAAMAAoAAAALAPr/AAAMAAkAAAALAPv/AAAMAAoAAAALAPz/AAAMAAkAAAALAP3/AAAMAAoAAAALAP7/AAAMAAkAAAALAP//AAAMAAoAAAALAAAAAAAMAAkAAAALAAEAAAAMAAoAAAALAAIAAAAMAAkAAAALAAMAAAAMAAoAAAALAAQAAAAMAAkAAAALAAUAAAAMAAoAAAALAAYAAAAMAAkAAAALAAcAAAAMAAoAAAAMAPj/AAANAAkAAAAMAPn/AAANAAoAAAAMAPr/AAANAAkAAAAMAPv/AAANAAoAAAAMAPz/AAANAAkAAAAMAP3/AAANAAoAAAAMAP7/AAANAAkAAAAMAP//AAANAAoAAAAMAAAAAAANAAkAAAAMAAEAAAANAAoAAAAMAAIAAAANAAkAAAAMAAMAAAANAAoAAAAMAAQAAAANAAkAAAAMAAUAAAANAAoAAAAMAAYAAAANAAkAAAAMAAcAAAANAAoAAAANAPj/AAALAAkAAAANAPn/AAALAAoAAAANAPr/AAALAAkAAAANAPv/AAALAAoAAAANAPz/AAALAAkAAAANAP3/AAALAAoAAAANAP7/AAALAAkAAAANAP//AAALAAoAAAANAAAAAAALAAkAAAANAAEAAAALAAoAAAANAAIAAAALAAkAAAANAAMAAAALAAoAAAANAAQAAAALAAkAAAANAAUAAAALAAoAAAANAAYAAAALAAkAAAANAAcAAAALAAoAAAA=")
+tile_set = ExtResource("17_rjssq")
+collision_enabled = false
+
+[node name="Walls" type="TileMapLayer" parent="." unique_id=804344544]
+z_index = -5
+tile_map_data = PackedByteArray("AADy//j/AAABAAoAAQDz//j/AAABAAoAAwD0//j/AAABAAoAAwD1//j/AAABAAoAAwD2//j/AAABAAoAAwD3//j/AAABAAoAAwD4//j/AAABAAoAAwD5//j/AAABAAoAAwD6//j/AAABAAoAAwD7//j/AAABAAoAAwD8//j/AAABAAoAAwD9//j/AAABAAoAAwD+//j/AAABAAoAAwD///j/AAABAAoAAwAAAPj/AAABAAoAAwABAPj/AAABAAoAAwACAPj/AAABAAoAAwADAPj/AAABAAoAAwAEAPj/AAABAAoAAwAFAPj/AAABAAoAAwAGAPj/AAABAAoAAwAHAPj/AAABAAoAAwAIAPj/AAABAAoAAwAJAPj/AAABAAoAAwAKAPj/AAABAAoAAwALAPj/AAABAAoAAwAMAPj/AAABAAoAAwANAPj/AAABAAoAAgDy//n/AAABAAoAAQDy//r/AAABAAoAAQDy//v/AAABAAoAAQDy//z/AAABAAoAAQDy//3/AAABAAoAAQDy//7/AAABAAoAAQDy////AAABAAoAAQDy/wAAAAABAAoAAQDy/wEAAAABAAoAAQDy/wIAAAABAAoAAQDy/wMAAAABAAoAAQDy/wQAAAABAAoAAQDy/wUAAAABAAoAAQDy/wYAAAABAAoAAQDy/wcAAAABAAoAAQANAPn/AAABAAoAAgANAPr/AAABAAoAAgANAPv/AAABAAoAAgANAPz/AAABAAoAAgANAP3/AAABAAoAAgANAP7/AAABAAoAAgANAP//AAABAAoAAgANAAAAAAABAAoAAgANAAEAAAABAAoAAgANAAIAAAABAAoAAgANAAMAAAABAAoAAgANAAQAAAABAAoAAgANAAUAAAABAAoAAgANAAYAAAABAAoAAgANAAcAAAABAAoAAgDz/wcAAAABAAoAAAD0/wcAAAABAAoAAAD1/wcAAAABAAoAAAD2/wcAAAABAAoAAAD3/wcAAAABAAoAAAD4/wcAAAABAAoAAAD5/wcAAAABAAoAAAD6/wcAAAABAAoAAAD7/wcAAAABAAoAAAD8/wcAAAABAAoAAAD9/wcAAAABAAoAAAD+/wcAAAABAAoAAAD//wcAAAABAAoAAAAAAAcAAAABAAoAAAABAAcAAAABAAoAAAACAAcAAAABAAoAAAADAAcAAAABAAoAAAAEAAcAAAABAAoAAAAFAAcAAAABAAoAAAAGAAcAAAABAAoAAAAHAAcAAAABAAoAAAAIAAcAAAABAAoAAAAJAAcAAAABAAoAAAAKAAcAAAABAAoAAAALAAcAAAABAAoAAAAMAAcAAAABAAoAAAA=")
+tile_set = ExtResource("17_rjssq")
+
+[node name="Props" type="TileMapLayer" parent="." unique_id=712990619]
+y_sort_enabled = true
+tile_set = ExtResource("17_rjssq")
+collision_enabled = false

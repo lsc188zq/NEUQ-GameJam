@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bgpp7irtnqd4i"]
+
+[ext_resource type="PackedScene" uid="uid://n6ulr11mfhv5" path="res://scenes/furniture/desk_wood.tscn" id="1_acng8"]
+[ext_resource type="PackedScene" uid="uid://byjvdhrrehyik" path="res://scenes/furniture/books.tscn" id="2_m5ynv"]
+[ext_resource type="PackedScene" uid="uid://83056kt3ngqq" path="res://scenes/furniture/chair_wood.tscn" id="3_m5ynv"]
+
+[node name="StudyPlace" type="Node2D" unique_id=874291615]
+
+[node name="ChairWood" parent="." unique_id=258851853 instance=ExtResource("1_acng8")]
+position = Vector2(-5, 0)
+
+[node name="ChairWood2" parent="." unique_id=2132103463 instance=ExtResource("3_m5ynv")]
+position = Vector2(-18, 0)
+
+[node name="Books" parent="." unique_id=1070079723 instance=ExtResource("2_m5ynv")]
+position = Vector2(-11, 21)

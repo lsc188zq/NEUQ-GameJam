@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cr4s6gx6kqhb1"
+path="res://.godot/imported/desk_wood.dialogue-325069c279b2c7e8b55fc87e754169f0.tres"
+
+[deps]
+
+source_file="res://content/dialogues/desk_wood.dialogue"
+dest_files=["res://.godot/imported/desk_wood.dialogue-325069c279b2c7e8b55fc87e754169f0.tres"]
+
+[params]
+
+defaults=true

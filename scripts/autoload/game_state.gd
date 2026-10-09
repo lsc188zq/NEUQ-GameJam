@@ -39,8 +39,8 @@ var completed_quests: Array[String] = []
 ## 为什么用字典而不是给每件事单独写一个变量： 方便随时加新的开关
 
 var flags: Dictionary = {
-	"见过小绿面":false
-	
+	"见过小绿面":false,
+	"了解过ACM":false
 }
 
 

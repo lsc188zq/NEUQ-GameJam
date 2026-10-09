@@ -408,10 +408,12 @@ offset = Vector2(0, -16)
 zoom = Vector2(3, 3)
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=2094410925]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=333098408]
+visible = false
 position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_6vy81")
 

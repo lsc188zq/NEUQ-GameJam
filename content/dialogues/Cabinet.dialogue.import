@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://clkgeppevwwha"
+path="res://.godot/imported/Cabinet.dialogue-c613ad439c911f305f7bf90583a3704f.tres"
+
+[deps]
+
+source_file="res://content/dialogues/Cabinet.dialogue"
+dest_files=["res://.godot/imported/Cabinet.dialogue-c613ad439c911f305f7bf90583a3704f.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://ds64kw2i2pdme"
+path="res://.godot/imported/Lamp.dialogue-c1d15a5c13fcc15f899a3baa5fff183f.tres"
+
+[deps]
+
+source_file="res://content/dialogues/Lamp.dialogue"
+dest_files=["res://.godot/imported/Lamp.dialogue-c1d15a5c13fcc15f899a3baa5fff183f.tres"]
+
+[params]
+
+defaults=true

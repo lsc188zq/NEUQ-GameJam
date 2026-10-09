@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b4e7ba6jsvojl"
+path="res://.godot/imported/chore_desks.dialogue-befcc8f3579c385713d32ad1990f8fed.tres"
+
+[deps]
+
+source_file="res://content/dialogues/chore_desks.dialogue"
+dest_files=["res://.godot/imported/chore_desks.dialogue-befcc8f3579c385713d32ad1990f8fed.tres"]
+
+[params]
+
+defaults=true

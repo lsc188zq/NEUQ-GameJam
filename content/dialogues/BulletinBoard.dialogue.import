@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://blyejehdywpq7"
+path="res://.godot/imported/BulletinBoard.dialogue-307b5c0b0cb37ff53f9fc9a78f84ebde.tres"
+
+[deps]
+
+source_file="res://content/dialogues/BulletinBoard.dialogue"
+dest_files=["res://.godot/imported/BulletinBoard.dialogue-307b5c0b0cb37ff53f9fc9a78f84ebde.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://n6ulr11mfhv5"]
+
+[ext_resource type="PackedScene" uid="uid://83056kt3ngqq" path="res://scenes/furniture/chair_wood.tscn" id="1_okvtc"]
+[ext_resource type="Texture2D" uid="uid://834la834senm" path="res://assets/sprites/furniture/desks/desk_school_04.png" id="2_okvtc"]
+[ext_resource type="Resource" uid="uid://cr4s6gx6kqhb1" path="res://content/dialogues/desk_wood.dialogue" id="3_mr5p3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr5p3"]
+size = Vector2(13, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78cnk"]
+size = Vector2(29, 38)
+
+[node name="ChairWood" unique_id=258851853 instance=ExtResource("1_okvtc")]
+texture = ExtResource("2_okvtc")
+dialogue = ExtResource("3_mr5p3")
+
+[node name="Sprite2D" parent="." index="0" unique_id=972927010]
+texture = ExtResource("2_okvtc")
+offset = Vector2(0, -11)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=2032063069]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_mr5p3")
+
+[node name="InteractArea" parent="." index="2" unique_id=1390926807]
+visible = false
+
+[node name="CollisionShape2D" parent="InteractArea" index="0" unique_id=245515481]
+visible = false
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_78cnk")

@@ -94,7 +94,7 @@ pause={
 [internationalization]
 
 locale/translations=PackedStringArray("res://addons/maaacks_menus_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_menus_template/base/translations/menus_translations.fr.translation")
-locale/translations_pot_files=PackedStringArray("res://content/dialogues/npc_green.dialogue", "res://content/dialogues/prop_chair.dialogue")
+locale/translations_pot_files=PackedStringArray("res://content/dialogues/npc_green.dialogue", "res://content/dialogues/books.dialogue", "res://content/dialogues/desk_wood.dialogue", "res://content/dialogues/chair_wood.dialogue", "res://content/dialogues/bookshelf.dialogue", "res://content/dialogues/MapWorld.dialogue", "res://content/dialogues/chore_desks.dialogue", "res://content/dialogues/BulletinBoard.dialogue", "res://content/dialogues/PlantSmall.dialogue", "res://content/dialogues/Lamp.dialogue", "res://content/dialogues/Cabinet.dialogue", "res://content/dialogues/Terminal.dialogue", "res://content/dialogues/Locker.dialogue", "res://content/dialogues/Clock.dialogue", "res://content/dialogues/PosterWall.dialogue", "res://content/dialogues/BlackBoard.dialogue", "res://content/dialogues/PlantPalm.dialogue")
 
 [layer_names]
 

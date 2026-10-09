@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://28sc1x6yhdv7"]
+
+[ext_resource type="PackedScene" uid="uid://dbn6ls61ipdxk" path="res://scenes/furniture/furniture_item.tscn" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://dhe2umo8cpfhs" path="res://assets/sprites/furniture/storage/bookshelf_01.png" id="2_tex"]
+[ext_resource type="Resource" uid="uid://bax3doo56k177" path="res://content/dialogues/bookshelf.dialogue" id="3_pgpvy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lldtb"]
+size = Vector2(21, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b03vk"]
+size = Vector2(37, 47)
+
+[node name="Bookshelf" unique_id=455407161 instance=ExtResource("1_base")]
+texture = ExtResource("2_tex")
+dialogue = ExtResource("3_pgpvy")
+
+[node name="Sprite2D" parent="." index="0" unique_id=972927010]
+texture = ExtResource("2_tex")
+offset = Vector2(0, -15.5)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=2032063069]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_lldtb")
+
+[node name="CollisionShape2D" parent="InteractArea" parent_id_path=PackedInt32Array(1390926807) index="0" unique_id=245515481]
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_b03vk")

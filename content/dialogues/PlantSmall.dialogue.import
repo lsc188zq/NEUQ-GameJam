@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cg5hwrtkbstmj"
+path="res://.godot/imported/PlantSmall.dialogue-d50427433e98630a40da08748457a136.tres"
+
+[deps]
+
+source_file="res://content/dialogues/PlantSmall.dialogue"
+dest_files=["res://.godot/imported/PlantSmall.dialogue-d50427433e98630a40da08748457a136.tres"]
+
+[params]
+
+defaults=true

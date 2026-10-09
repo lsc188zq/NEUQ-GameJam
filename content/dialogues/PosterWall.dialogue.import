@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bk6f66b4lcpil"
+path="res://.godot/imported/PosterWall.dialogue-6bae0e18d1d1bf897458dba735b182be.tres"
+
+[deps]
+
+source_file="res://content/dialogues/PosterWall.dialogue"
+dest_files=["res://.godot/imported/PosterWall.dialogue-6bae0e18d1d1bf897458dba735b182be.tres"]
+
+[params]
+
+defaults=true

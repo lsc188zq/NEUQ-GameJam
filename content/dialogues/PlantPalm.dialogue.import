@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://p7h3j0k2p5uy"
+path="res://.godot/imported/PlantPalm.dialogue-b8b9dcde42a436782772a9d3dbba313e.tres"
+
+[deps]
+
+source_file="res://content/dialogues/PlantPalm.dialogue"
+dest_files=["res://.godot/imported/PlantPalm.dialogue-b8b9dcde42a436782772a9d3dbba313e.tres"]
+
+[params]
+
+defaults=true

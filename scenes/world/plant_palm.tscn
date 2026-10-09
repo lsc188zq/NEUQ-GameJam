@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3]
-
-[ext_resource type="PackedScene" uid="uid://dbn6ls61ipdxk" path="res://scenes/world/furniture_item.tscn" id="1_base"]
-[ext_resource type="Texture2D" uid="uid://blb32buorl3t" path="res://assets/sprites/furniture/plants/plant_palm_01.png" id="2_tex"]
-
-[node name="PlantPalm" instance=ExtResource("1_base")]
-texture = ExtResource("2_tex")

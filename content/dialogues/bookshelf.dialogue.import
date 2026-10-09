@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bax3doo56k177"
+path="res://.godot/imported/bookshelf.dialogue-c0e085f2e2d7ebf66c9daefe5941b753.tres"
+
+[deps]
+
+source_file="res://content/dialogues/bookshelf.dialogue"
+dest_files=["res://.godot/imported/bookshelf.dialogue-c0e085f2e2d7ebf66c9daefe5941b753.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://by2irv26utvty"
+path="res://.godot/imported/MapWorld.dialogue-edfdd352f98f62c2a0f6d22ba8076a4f.tres"
+
+[deps]
+
+source_file="res://content/dialogues/MapWorld.dialogue"
+dest_files=["res://.godot/imported/MapWorld.dialogue-edfdd352f98f62c2a0f6d22ba8076a4f.tres"]
+
+[params]
+
+defaults=true

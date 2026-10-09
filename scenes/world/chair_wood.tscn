@@ -1,9 +1,0 @@
-[gd_scene load_steps=4 format=3]
-
-[ext_resource type="PackedScene" uid="uid://dbn6ls61ipdxk" path="res://scenes/world/furniture_item.tscn" id="1_base"]
-[ext_resource type="Texture2D" uid="uid://bjcmwmkn0cr8m" path="res://assets/sprites/furniture/chairs/chair_wood_01.png" id="2_tex"]
-[ext_resource type="Resource" uid="uid://d23m1e4rjfbsb" path="res://content/dialogues/prop_chair.dialogue" id="3_dlg"]
-
-[node name="ChairWood" instance=ExtResource("1_base")]
-texture = ExtResource("2_tex")
-dialogue = ExtResource("3_dlg")
