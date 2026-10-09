@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dpf73x3ep8jdh" path="res://scripts/components/pause_menu_controller.gd" id="3_1fp7r"]
 [ext_resource type="PackedScene" uid="uid://b3sosnu1wdic3" path="res://scenes/windows/pause_menu.tscn" id="4_6m72w"]
 [ext_resource type="PackedScene" uid="uid://buapkwkqnc30f" path="res://scenes/rooms/classroom.tscn" id="6_t5ptc"]
+[ext_resource type="Script" uid="uid://d1n4c2tf0ggk1" path="res://scripts/ui/quest_hud.gd" id="9_1yooq"]
 
 [node name="World" type="Node2D" unique_id=1917351806]
 y_sort_enabled = true
@@ -21,3 +22,14 @@ script = ExtResource("3_1fp7r")
 pause_menu_packed = ExtResource("4_6m72w")
 
 [node name="Classroom" parent="." unique_id=1109104143 instance=ExtResource("6_t5ptc")]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1827187747]
+script = ExtResource("9_1yooq")
+
+[node name="QuestLabel" type="Label" parent="HUD" unique_id=703009303]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 25.0
+offset_bottom = 33.0
+theme_override_colors/font_outline_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_constants/outline_size = 8

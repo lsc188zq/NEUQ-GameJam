@@ -1,6 +1,14 @@
 using GameState
+using QuestBook
 ~ start
-if GameState.get_flag("见过小绿面")==false:
+if GameState.get_flag("见过小绿面") and GameState.get_count("钥匙") >= 1:
+	$> GameState.spend("钥匙")
+	$> GameState.set_flag("交还钥匙", true)
+	学长: 哎？你真找到了？！
+	学长: 谢了谢了——这是我柜子的钥匙，丢了可麻烦了。
+	你: （就这样？说好的"东西"呢。）
+	=> END
+elif GameState.get_flag("见过小绿面")==false:
 	$> GameState.set_flag("见过小绿面",true)
 	学长: 你好，是新来的同学吧？有兴趣了解我们NEUQ-ACM俱乐部吗
 	- 我再看看吧。 => watch
@@ -9,10 +17,20 @@ elif GameState.get_flag("了解过ACM")==false:
 	学长: 又见面了呀？考虑的怎么样了
 	- 我只是路过。 => watch
 	- 好呀，我很有兴趣？ => introduce
+elif QuestBook.is_done("帮学长找钥匙"):
+	学长: 钥匙的事真是多谢了，回头请你喝汽水。
+	=> END
+elif QuestBook.is_active("帮学长找钥匙"):
+	学长: 找到了吗？我记得大概是落在椅子附近了。
+	=> END
 else:
 	学长: 对了我有东西落在书堆里了，你能帮我找一下吗？
 	- 抱歉，我还没有空。 => watch
-	- 好呀？ => introduce
+	- 好呀？ => accept_find
+~ accept_find
+$> QuestBook.start("帮学长找钥匙")
+学长: 太好了！应该就在这附近，你帮我翻翻看。
+=> END
 ~ watch
 
 学长: 不要紧，你先去其它地方看看吧

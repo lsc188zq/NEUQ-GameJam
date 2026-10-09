@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SimpleQuest" format=3 uid="uid://b5vvxw6b158o3"]
+
+[ext_resource type="Script" uid="uid://cm4vgk0ix88pg" path="res://scripts/quests/simple_quest.gd" id="1_n52v4"]
+
+[resource]
+script = ExtResource("1_n52v4")
+complete_flag = "见过小绿面"
+id = 1
+quest_name = "去见学长"
+quest_description = "新来的同学该去机房找学长报到。"
+quest_objective = "和机房里的学长说上话"

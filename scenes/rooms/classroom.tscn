@@ -23,11 +23,11 @@
 [ext_resource type="Resource" uid="uid://bgyf0s45un1hn" path="res://content/dialogues/BlackBoard.dialogue" id="14_rjssq"]
 [ext_resource type="PackedScene" uid="uid://28sc1x6yhdv7" path="res://scenes/furniture/bookshelf.tscn" id="15_14hsp"]
 [ext_resource type="Resource" uid="uid://blyejehdywpq7" path="res://content/dialogues/BulletinBoard.dialogue" id="15_om2mg"]
-[ext_resource type="PackedScene" uid="uid://83056kt3ngqq" path="res://scenes/furniture/chair_wood.tscn" id="16_dm2uf"]
 [ext_resource type="PackedScene" uid="uid://dqgqgs4eynh8u" path="res://scenes/furniture/plant_palm.tscn" id="16_iawkn"]
 [ext_resource type="TileSet" uid="uid://c1r8ggofa7sih" path="res://assets/tilesets/room_tileset.tres" id="17_rjssq"]
 [ext_resource type="Resource" uid="uid://bk6f66b4lcpil" path="res://content/dialogues/PosterWall.dialogue" id="18_kajcs"]
 [ext_resource type="Resource" uid="uid://b4e7ba6jsvojl" path="res://content/dialogues/chore_desks.dialogue" id="20_4sy15"]
+[ext_resource type="PackedScene" path="res://scenes/furniture/chair_key.tscn" id="27_4sy15"]
 
 [node name="Classroom" type="Node2D" unique_id=1109104143]
 y_sort_enabled = true
@@ -123,7 +123,7 @@ position = Vector2(-172, 111)
 [node name="PlantPalm02" parent="Furniture" unique_id=956498075 instance=ExtResource("16_iawkn")]
 position = Vector2(-50, 112)
 
-[node name="ChairWood" parent="Furniture" unique_id=2132103463 instance=ExtResource("16_dm2uf")]
+[node name="ChairKey" parent="Furniture" unique_id=1541325329 instance=ExtResource("27_4sy15")]
 position = Vector2(136, 31)
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1505183607]

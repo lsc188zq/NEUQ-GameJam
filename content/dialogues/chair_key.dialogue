@@ -1,0 +1,14 @@
+using GameState
+~ start
+if GameState.get_flag("拿到钥匙") == false:
+	$> GameState.set_flag("拿到钥匙", true)
+	$> GameState.bump("钥匙", 1)
+	你把手伸进椅子的坐垫缝里。
+	摸到一个冰凉的东西——是一把钥匙。
+	钥匙上贴着一张便利贴：「柜子那把，别弄丢了」
+
+	=> END
+else:
+	这把椅子已经被你翻过了。坐垫缝里空空的。
+
+	=> END

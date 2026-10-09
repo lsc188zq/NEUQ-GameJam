@@ -45,6 +45,33 @@ var flags: Dictionary = {
 
 
 # ═══════════════════════════════════════════════════
+#  信号
+# ═══════════════════════════════════════════════════
+
+## 有东西变了。set_flag / bump / spend 都会发这个信号。
+##
+## 【谁在听】QuestTracker（任务追踪器）——
+## 它一听到就回去把所有【进行中】的任务重新检查一遍。
+##
+## 为什么必须有这个信号：QuestSystem 是【被动】的，
+## 你不叫它、它就永远不动。没有这个信号，
+## 任务永远不会自己完成 —— 这是整条链子里最关键的一环。
+signal value_changed(key: String, value)
+
+
+# ═══════════════════════════════════════════════════
+#  计数器
+# ═══════════════════════════════════════════════════
+
+## 计数器。键是名字，值是数字。物品也放这里：
+##   {"钥匙": 1, "见过的人数": 3}
+##
+## 为什么物品和计数共用同一个字典：
+## "钥匙"本质上就是"名叫钥匙的计数器"，分成两套只是让成员多学一个概念。
+var counters: Dictionary = {}
+
+
+# ═══════════════════════════════════════════════════
 #  开关操作
 # ═══════════════════════════════════════════════════
 
@@ -52,6 +79,7 @@ var flags: Dictionary = {
 ## 在剧本里这样用：$> GameState.set_flag("已报到")
 func set_flag(key: String, value = true) -> void:
 	flags[key] = value
+	value_changed.emit(key, value)
 
 
 ## 查询一个开关。
@@ -70,6 +98,37 @@ func clear_flag(key: String) -> void:
 
 
 # ═══════════════════════════════════════════════════
+#  计数器操作
+# ═══════════════════════════════════════════════════
+
+## 加数量。捡到东西、见过一个人、收集到一个零件，都调它。
+## 在剧本里这样用：$> GameState.bump("钥匙")
+func bump(key: String, n: int = 1) -> void:
+	counters[key] = counters.get(key, 0) + n
+	value_changed.emit(key, counters[key])
+
+
+## 查数量。没记过就是 0（不用先判断存不存在）。
+## 在剧本条件里这样用：[if GameState.get_count("钥匙") >= 3 /]
+func get_count(key: String) -> int:
+	return counters.get(key, 0)
+
+
+## 扣数量。数量不够就【返回 false 且什么都不做】。
+## 用来做"用钥匙开门"这类：
+##     if GameState.spend("钥匙"):
+##         开门
+##     else:
+##         还缺钥匙
+func spend(key: String, n: int = 1) -> bool:
+	if counters.get(key, 0) < n:
+		return false
+	counters[key] -= n
+	value_changed.emit(key, counters[key])
+	return true
+
+
+# ═══════════════════════════════════════════════════
 #  调试用
 # ═══════════════════════════════════════════════════
 
@@ -80,3 +139,4 @@ func debug_print() -> void:
 	print("  玩家位置: ", player_position)
 	print("  已完成任务: ", completed_quests)
 	print("  开关: ", flags)
+	print("  计数器: ", counters)

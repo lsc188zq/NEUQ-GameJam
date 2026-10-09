@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://babj5fklpiij3" path="res://assets/sprites/furniture/desks/desk_computer_01.png" id="2_vuoqb"]
 [ext_resource type="Resource" uid="uid://c0smenbq0dpd4" path="res://content/dialogues/books.dialogue" id="3_yyecw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aj85k"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfgh2"]
 size = Vector2(44, 39)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp0gq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vuoqb"]
 size = Vector2(28, 10)
 
 [node name="Books" type="StaticBody2D" unique_id=1070079723]
@@ -30,9 +30,9 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=245515481]
 visible = false
 position = Vector2(0, -11.5)
-shape = SubResource("RectangleShape2D_aj85k")
+shape = SubResource("RectangleShape2D_rfgh2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=523130932]
 position = Vector2(0, -5)
-shape = SubResource("RectangleShape2D_lp0gq")
+shape = SubResource("RectangleShape2D_vuoqb")
 disabled = true

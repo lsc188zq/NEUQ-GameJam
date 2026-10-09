@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dypu82dcfmmao"
+path="res://.godot/imported/chair_key.dialogue-8f89b75c05602954065d547c4b2a3272.tres"
+
+[deps]
+
+source_file="res://content/dialogues/chair_key.dialogue"
+dest_files=["res://.godot/imported/chair_key.dialogue-8f89b75c05602954065d547c4b2a3272.tres"]
+
+[params]
+
+defaults=true

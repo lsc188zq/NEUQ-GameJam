@@ -20,6 +20,19 @@ const TILE_SIZE: int = 16
 @onready var camera: Camera2D = $Player/Camera2D
 
 
+# ═══════════════════════════════════════════════════
+#  任务
+# ═══════════════════════════════════════════════════
+
+## 开局自动接取的任务，现在归【QuestBook】管了 —— 见 scenes/quest_book.tscn。
+##
+## 为什么要搬走：从剧本里接任务需要"按名字查任务"这张查找表，
+## 而查找表必须跨场景一直存在，所以放进自动加载更合适。
+##
+##   想加开局任务   → 打开 scenes/quest_book.tscn，拖进 opening_quests 数组
+##   想由对话触发   → 剧本里写 $> QuestBook.start("任务名")
+
+
 func _ready() -> void:
 	_update_camera_limits()
 

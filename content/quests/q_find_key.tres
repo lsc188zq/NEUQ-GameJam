@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SimpleQuest" format=3 uid="uid://bod1fi00jdotf"]
+
+[ext_resource type="Script" uid="uid://cm4vgk0ix88pg" path="res://scripts/quests/simple_quest.gd" id="1_ywtxp"]
+
+[resource]
+script = ExtResource("1_ywtxp")
+complete_flag = "交还钥匙"
+id = 3
+quest_name = "帮学长找钥匙"
+quest_description = "学长说他柜子的钥匙落在机房的书堆那边了。"
+quest_objective = "在机房里找到钥匙，再交给学长"
