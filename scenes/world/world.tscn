@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dpf73x3ep8jdh" path="res://scripts/components/pause_menu_controller.gd" id="3_1fp7r"]
 [ext_resource type="PackedScene" uid="uid://b3sosnu1wdic3" path="res://scenes/windows/pause_menu.tscn" id="4_6m72w"]
 [ext_resource type="PackedScene" uid="uid://buapkwkqnc30f" path="res://scenes/rooms/classroom.tscn" id="6_t5ptc"]
+[ext_resource type="Script" uid="uid://5tj36umeekg4" path="res://scripts/ui/inventory_hud.gd" id="8_j2gmx"]
 [ext_resource type="Script" uid="uid://d1n4c2tf0ggk1" path="res://scripts/ui/quest_hud.gd" id="9_1yooq"]
 
 [node name="World" type="Node2D" unique_id=1917351806]
@@ -33,3 +34,17 @@ offset_right = 25.0
 offset_bottom = 33.0
 theme_override_colors/font_outline_color = Color(0.1, 0.1, 0.1, 1)
 theme_override_constants/outline_size = 8
+
+[node name="InventoryLabel" type="Label" parent="HUD" unique_id=1126370934]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -324.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(1, 0.92, 0.3, 1)
+theme_override_colors/font_outline_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_constants/outline_size = 8
+horizontal_alignment = 2
+script = ExtResource("8_j2gmx")

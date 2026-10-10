@@ -16,6 +16,12 @@ extends CanvasLayer
 ## "✓ 完成" 停留几秒
 const DONE_HOLD_SECONDS: float = 3.0
 
+## 任务【进行中】时文字的颜色（蓝）
+const COLOR_ACTIVE := Color(0.35, 0.65, 1.0)
+
+## 任务【完成】提示的颜色（红）
+const COLOR_DONE := Color(1.0, 0.35, 0.3)
+
 @onready var _label: Label = $QuestLabel
 
 ## 防止"完成"提示被刷掉：
@@ -37,6 +43,7 @@ func _on_quest_changed(_quest: Quest) -> void:
 
 func _on_quest_completed(quest: Quest) -> void:
 	_showing_done = true
+	_label.add_theme_color_override("font_color", COLOR_DONE)
 	_label.text = "✓ " + quest.quest_name + "　完成"
 	await get_tree().create_timer(DONE_HOLD_SECONDS).timeout
 	_showing_done = false
@@ -46,6 +53,10 @@ func _on_quest_completed(quest: Quest) -> void:
 ## 把【当前所有进行中的任务】列出来。
 ## 一条都没有时显示空字符串（Label 就看不见了）。
 func _refresh() -> void:
+	# 一进这个函数就先把颜色设回"进行中"的蓝色 ——
+	# 这样刚显示完红色的"✓ 完成"之后，会正确切回蓝色。
+	_label.add_theme_color_override("font_color", COLOR_ACTIVE)
+
 	var active := QuestSystem.get_active_quests()
 
 	if active.is_empty():

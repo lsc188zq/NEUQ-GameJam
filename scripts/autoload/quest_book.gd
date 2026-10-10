@@ -36,6 +36,9 @@ var _by_name: Dictionary = {}
 func _ready() -> void:
 	_index()
 	_start_opening_quests()
+	# 启动时打一行，方便一眼看出"我的任务登记上没有"。
+	# 成员新加了一个任务 .tres 却忘了拖进 all_quests 时，看这行就知道了。
+	print("【QuestBook】已登记 %d 个任务：%s" % [_by_name.size(), ", ".join(_by_name.keys())])
 
 
 ## 建索引。同名任务后者覆盖前者（会在输出面板提醒）。

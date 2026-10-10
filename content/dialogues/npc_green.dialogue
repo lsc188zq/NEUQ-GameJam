@@ -1,7 +1,10 @@
 using GameState
 using QuestBook
 ~ start
-if GameState.get_flag("见过小绿面") and GameState.get_count("钥匙") >= 1:
+# 交还钥匙的条件：[任务必须是【进行中】] 且 [身上有钥匙]
+# ⚠️ “任务在进行中”这一条不能省 ——
+#    否则玩家先捡到钥匙再找学长，任务会被直接结算（连任务都没接过）。
+if QuestBook.is_active("帮学长找钥匙") and GameState.get_count("钥匙") >= 1:
 	$> GameState.spend("钥匙")
 	$> GameState.set_flag("交还钥匙", true)
 	学长: 哎？你真找到了？！
@@ -29,7 +32,7 @@ else:
 	- 好呀？ => accept_find
 ~ accept_find
 $> QuestBook.start("帮学长找钥匙")
-学长: 太好了！应该就在这附近，你帮我翻翻看。
+学长: 太好了！应该就在那堆书附近，你帮我翻翻看。
 => END
 ~ watch
 
