@@ -1,0 +1,12 @@
+using GameState
+using QuestBook
+
+~ start
+要去外面吗
+- 还是算了吧。
+- 要去 => leave
+
+~ leave
+if QuestBook.is_active("离开这个教室") 
+	$> GameState.set_flag("离开教室", true)
+=> END

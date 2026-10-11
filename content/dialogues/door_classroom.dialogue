@@ -1,0 +1,12 @@
+using GameState
+using Travel
+
+~ start
+要去外面吗
+- 还是算了吧。
+- 要去 => leave
+
+~ leave
+$> GameState.set_flag("离开教室", true)
+$> Travel.go("hallway", "教室门口")
+=> END

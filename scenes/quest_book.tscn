@@ -4,8 +4,9 @@
 [ext_resource type="Script" uid="uid://d20o527a4y4ee" path="res://addons/quest_system/quest_resource.gd" id="2_sc1cw"]
 [ext_resource type="Resource" uid="uid://b5vvxw6b158o3" path="res://content/quests/q_meet_green.tres" id="3_net7u"]
 [ext_resource type="Resource" uid="uid://bod1fi00jdotf" path="res://content/quests/q_find_key.tres" id="4_h1w7p"]
+[ext_resource type="Resource" uid="uid://dk8ylo3qhcn8c" path="res://content/quests/q_leave_classroom.tres" id="5_sc1cw"]
 
 [node name="QuestBook" type="Node" unique_id=383855104]
 script = ExtResource("1_220v1")
-all_quests = Array[ExtResource("2_sc1cw")]([ExtResource("3_net7u"), ExtResource("4_h1w7p")])
+all_quests = Array[ExtResource("2_sc1cw")]([ExtResource("3_net7u"), ExtResource("4_h1w7p"), ExtResource("5_sc1cw")])
 opening_quests = Array[ExtResource("2_sc1cw")]([ExtResource("3_net7u")])

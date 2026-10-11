@@ -28,6 +28,8 @@
 [ext_resource type="Resource" uid="uid://bk6f66b4lcpil" path="res://content/dialogues/PosterWall.dialogue" id="18_kajcs"]
 [ext_resource type="Resource" uid="uid://b4e7ba6jsvojl" path="res://content/dialogues/chore_desks.dialogue" id="20_4sy15"]
 [ext_resource type="PackedScene" path="res://scenes/furniture/chair_key.tscn" id="27_4sy15"]
+[ext_resource type="PackedScene" uid="uid://bi0vd2cmli063" path="res://scenes/npc/npc_green.tscn" id="29_46jgj"]
+[ext_resource type="PackedScene" uid="uid://btwpg4gy8aeq4" path="res://scenes/furniture/door.tscn" id="30_14hsp"]
 
 [node name="Classroom" type="Node2D" unique_id=1109104143]
 y_sort_enabled = true
@@ -141,3 +143,14 @@ tile_set = ExtResource("17_rjssq")
 y_sort_enabled = true
 tile_set = ExtResource("17_rjssq")
 collision_enabled = false
+
+[node name="NPC" parent="." unique_id=1136818749 instance=ExtResource("29_46jgj")]
+position = Vector2(77, 24)
+
+[node name="Door" parent="." unique_id=258851853 instance=ExtResource("30_14hsp")]
+position = Vector2(126, -113)
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1940693039]
+
+[node name="门口" type="Marker2D" parent="SpawnPoints" unique_id=649912417]
+position = Vector2(126, -80)

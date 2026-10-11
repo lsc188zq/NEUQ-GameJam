@@ -2,12 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://b8ncb45i8ojn1" path="res://scenes/player/player.tscn" id="1_dphjl"]
 [ext_resource type="Script" uid="uid://tt3w8yqbwhwv" path="res://scenes/world/world.gd" id="1_t5ptc"]
-[ext_resource type="PackedScene" uid="uid://bi0vd2cmli063" path="res://scenes/npc/npc_green.tscn" id="2_sl2e5"]
 [ext_resource type="Script" uid="uid://dpf73x3ep8jdh" path="res://scripts/components/pause_menu_controller.gd" id="3_1fp7r"]
 [ext_resource type="PackedScene" uid="uid://b3sosnu1wdic3" path="res://scenes/windows/pause_menu.tscn" id="4_6m72w"]
 [ext_resource type="PackedScene" uid="uid://buapkwkqnc30f" path="res://scenes/rooms/classroom.tscn" id="6_t5ptc"]
+[ext_resource type="Script" uid="uid://csfnke5mgep8q" path="res://scripts/world/room_manager.gd" id="7_j2gmx"]
 [ext_resource type="Script" uid="uid://5tj36umeekg4" path="res://scripts/ui/inventory_hud.gd" id="8_j2gmx"]
 [ext_resource type="Script" uid="uid://d1n4c2tf0ggk1" path="res://scripts/ui/quest_hud.gd" id="9_1yooq"]
+[ext_resource type="PackedScene" uid="uid://dvd6jddsvusyw" path="res://scenes/rooms/hallway.tscn" id="9_gb53w"]
 
 [node name="World" type="Node2D" unique_id=1917351806]
 y_sort_enabled = true
@@ -15,14 +16,9 @@ script = ExtResource("1_t5ptc")
 
 [node name="Player" parent="." unique_id=2002447774 instance=ExtResource("1_dphjl")]
 
-[node name="NPC" parent="." unique_id=1136818749 instance=ExtResource("2_sl2e5")]
-position = Vector2(77, 24)
-
 [node name="PauseMenuController" type="Node" parent="." unique_id=228680624]
 script = ExtResource("3_1fp7r")
 pause_menu_packed = ExtResource("4_6m72w")
-
-[node name="Classroom" parent="." unique_id=1109104143 instance=ExtResource("6_t5ptc")]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1827187747]
 script = ExtResource("9_1yooq")
@@ -48,3 +44,8 @@ theme_override_colors/font_outline_color = Color(0.1, 0.1, 0.1, 1)
 theme_override_constants/outline_size = 8
 horizontal_alignment = 2
 script = ExtResource("8_j2gmx")
+
+[node name="Room" type="Node2D" parent="." unique_id=865889325]
+y_sort_enabled = true
+script = ExtResource("7_j2gmx")
+rooms = Array[PackedScene]([ExtResource("6_t5ptc"), ExtResource("9_gb53w")])

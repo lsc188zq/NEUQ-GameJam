@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://btwpg4gy8aeq4"]
+
+[ext_resource type="PackedScene" uid="uid://n6ulr11mfhv5" path="res://scenes/furniture/desk_wood.tscn" id="1_upqih"]
+[ext_resource type="Texture2D" uid="uid://cxhoybohoyqok" path="res://assets/sprites/furniture/doors/door_wood_01.png" id="2_58ooy"]
+[ext_resource type="Resource" uid="uid://bbgtp3t8s1kr7" path="res://content/dialogues/door_classroom.dialogue" id="3_upqih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf77y"]
+size = Vector2(14, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2m6s"]
+size = Vector2(30, 37)
+
+[node name="Door" unique_id=258851853 instance=ExtResource("1_upqih")]
+texture = ExtResource("2_58ooy")
+dialogue = ExtResource("3_upqih")
+
+[node name="Sprite2D" parent="." index="0" unique_id=972927010]
+texture = ExtResource("2_58ooy")
+offset = Vector2(0, -10.5)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=2032063069]
+shape = SubResource("RectangleShape2D_kf77y")
+
+[node name="CollisionShape2D" parent="InteractArea" parent_id_path=PackedInt32Array(1390926807) index="0" unique_id=245515481]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_a2m6s")

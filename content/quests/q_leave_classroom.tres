@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SimpleQuest" format=3 uid="uid://dk8ylo3qhcn8c"]
+
+[ext_resource type="Script" uid="uid://cm4vgk0ix88pg" path="res://scripts/quests/simple_quest.gd" id="1_m7quj"]
+
+[resource]
+script = ExtResource("1_m7quj")
+complete_flag = "离开教室"
+id = 4
+quest_name = "离开这个教室"
+quest_description = "离开这间教室，去外面看看吧。"
+quest_objective = "与门交互。"

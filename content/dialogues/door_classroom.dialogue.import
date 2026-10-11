@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bbgtp3t8s1kr7"
+path="res://.godot/imported/door_classroom.dialogue-e9be43def745d3deaa66c28c5a4c94af.tres"
+
+[deps]
+
+source_file="res://content/dialogues/door_classroom.dialogue"
+dest_files=["res://.godot/imported/door_classroom.dialogue-e9be43def745d3deaa66c28c5a4c94af.tres"]
+
+[params]
+
+defaults=true
