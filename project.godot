@@ -12,6 +12,7 @@ config_version=5
 
 config/name="NEUQ-GameJam"
 run/main_scene="res://scenes/opening/opening.tscn"
+config/use_custom_user_dir=true
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -31,6 +32,7 @@ QuestTracker="*res://scripts/autoload/quest_tracker.gd"
 QuestBook="*res://scenes/quest book/quest_book.tscn"
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 Travel="*res://scripts/autoload/travel.gd"
+SaveManager="*res://scripts/autoload/save_manager.gd"
 
 [clean_copy_examples]
 

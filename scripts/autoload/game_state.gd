@@ -22,6 +22,13 @@ extends Node
 ## 用途：从室内场景回到室外时，让玩家出现在原来的位置，而不是回到出生点。
 var player_position: Vector2 = Vector2.ZERO
 
+## 玩家最后在哪个房间。
+## 值 = 房间场景的文件名（不含 .tscn），比如 "classroom" / "hallway"。
+##
+## 由 RoomManager 在换房间时写入。
+## 存档要用它 —— 不然读档回来不知道玩家在哪个房间。
+var current_room: String = "classroom"
+
 
 # ═══════════════════════════════════════════════════
 #  进度
@@ -136,7 +143,7 @@ func spend(key: String, n: int = 1) -> bool:
 ## 用法：在剧本里写 $> GameState.debug_print()
 func debug_print() -> void:
 	print("=== GameState ===")
-	print("  玩家位置: ", player_position)
+	print("  玩家位置: ", player_position, "   所在房间: ", current_room)
 	print("  已完成任务: ", completed_quests)
 	print("  开关: ", flags)
 	print("  计数器: ", counters)

@@ -49,16 +49,43 @@ func _ready() -> void:
 
 	Travel.go_requested.connect(_on_go_requested)
 
-	# 开局：如果 Travel 已经有没处理的请求就用它，否则用默认房间。
-	# （留这个口子是为了以后"从主菜单直接进某个房间"这种需求。）
+	# 游戏【中途】读档 —— 得把房间重新装出来。
+	# ⚠️ 开局那次读档走不到这里：SaveManager 是自动加载，
+	#    它的 _ready 比场景早，那时候这个连接还没建立。
+	#    开局的情况由下面那段 if 处理。
+	SaveManager.loaded.connect(_on_save_loaded)
+
+	# 开局进哪个房间，按优先级三选一：
+	#   ① Travel 有没处理的请求 → 用它（留给"从主菜单直接进某个房间"）
+	#   ② 这一局是【读档】进来的 → 去存档里那个房间，玩家待在存档位置
+	#   ③ 新游戏                → 默认房间，玩家站正常出生点
 	if Travel.has_pending():
 		_switch_to(Travel.room_name, Travel.spawn_name)
+	elif SaveManager.has_loaded():
+		_switch_to(GameState.current_room, "")   # 出生点留空 = 不挪玩家
+		_apply_saved_position()
 	else:
 		_switch_to(default_room, "")
 
 
+## 游戏中途读档了：重新装出存档里那个房间，人放回存档位置。
+##
+## 为什么不能只恢复 GameState：玩家可能在另一个房间 ✗
+## 房间节点是照着"当时那个房间"建的，得整个换掉。
+func _on_save_loaded() -> void:
+	_switch_to(GameState.current_room, "")   # 出生点留空 = 不按门的位置摆
+	_apply_saved_position()
+
+
 func _on_go_requested(room_name: String, spawn_name: String) -> void:
 	_switch_to(room_name, spawn_name)
+
+	# 换房间 = 一个检查点 → 自动存一次档。
+	#
+	# ⚠️ 只有【Travel 触发的】才存 —— 也就是玩家自己走过去的那次。
+	#    开局装房间不存：那是"进场"，不是"玩家做了什么"。
+	#    （而且读档进来立刻又覆盖存档，纯属白写。）
+	SaveManager.save_game()
 
 
 ## 换房间。卸载旧的、装上新的、挪玩家。
@@ -83,10 +110,25 @@ func _switch_to(room_name: String, spawn_name: String) -> void:
 	_current = scene.instantiate()
 	add_child(_current)
 
+	# 记下"玩家现在在哪个房间"，存档要用。
+	GameState.current_room = room_name
+
 	var player := _find_player()
 	if player != null:
 		_move_player_to_spawn(player, _current, spawn_name)
 	_update_camera_limits(_current)
+
+
+## 读档时把玩家放回【存档里记的那个坐标】。
+##
+## 和 _move_player_to_spawn() 的区别：
+##   那个用的是房间里的"出生点标记"（从哪扇门进来的）；
+##   这个用的是存档里存的具体坐标（上次退出时站在哪）。
+func _apply_saved_position() -> void:
+	var player := _find_player()
+	if player == null:
+		return
+	player.global_position = GameState.player_position
 
 
 ## 找玩家节点。

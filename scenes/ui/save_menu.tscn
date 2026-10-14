@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://de50vxgq2n5ou"]
+
+[sub_resource type="GDScript" id="GDScript_mee7n"]
+script/source = "extends CanvasLayer
+## 存档菜单：按 **F9** 打开 / 关闭。上面有「保存 / 读取 / 删除」三个按钮。
+##
+## ═══ 界面在哪 ═══
+## **`scenes/ui/save_menu.tscn`** —— 想改按钮位置、改字、换样式，
+## 都在那个场景里改。这个脚本只负责两件事：
+##   ① 按钮按下去干什么
+##   ② 底部那行状态文字显示什么
+##
+## ═══ 三个按钮分别调用 SaveManager 的哪个方法 ═══
+##   保存存档 → SaveManager.save_game()
+##   读取存档 → SaveManager.load_game()
+##   删除存档 → SaveManager.delete_save()
+##
+## 读档之后【不用在这里管房间】——
+## RoomManager 监听了 SaveManager.loaded，它会自己把房间重新装出来、
+## 把玩家挪回存档位置。
+##
+## ═══ 快捷键 ═══
+## F9 写死在下面的常量里（用 _input 直接判断按键）。
+## 没走\"输入映射\"，是为了少改一次 project.godot。
+## 想换键 → 改 TOGGLE_KEY；
+## 想做成玩家可配置的 → 项目设置 → 输入映射 里加个动作，
+## 再把 _input 换成 _unhandled_input + event.is_action_pressed(...)。
+
+## 开关菜单的按键
+const TOGGLE_KEY: Key = KEY_F9
+
+@onready var _root: Control = $Root
+@onready var _status: Label = $Root/Center/Box/StatusLabel
+
+
+func _ready() -> void:
+	var box := $Root/Center/Box
+	box.get_node(\"SaveButton\").pressed.connect(_on_save_pressed)
+	box.get_node(\"LoadButton\").pressed.connect(_on_load_pressed)
+	box.get_node(\"DeleteButton\").pressed.connect(_on_delete_pressed)
+	box.get_node(\"CloseButton\").pressed.connect(_on_close_pressed)
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == TOGGLE_KEY:
+			_toggle()
+			get_viewport().set_input_as_handled()
+
+
+# ═══════════════════════════════════════════════════
+#  按钮
+# ═══════════════════════════════════════════════════
+
+func _on_save_pressed() -> void:
+	SaveManager.save_game()
+	_refresh_status(\"✓ 已保存\")
+
+
+func _on_load_pressed() -> void:
+	if not SaveManager.has_save():
+		_refresh_status(\"没有存档，先保存一个吧\")
+		return
+	SaveManager.load_game()
+	_refresh_status(\"✓ 已读取\")
+
+
+func _on_delete_pressed() -> void:
+	if not SaveManager.has_save():
+		_refresh_status(\"本来就没有存档\")
+		return
+	SaveManager.delete_save()
+	_refresh_status(\"存档已删除。下次启动就是新游戏了\")
+
+
+func _on_close_pressed() -> void:
+	_toggle()
+
+
+# ═══════════════════════════════════════════════════
+#  开 / 关 与状态文字
+# ═══════════════════════════════════════════════════
+
+func _toggle() -> void:
+	_root.visible = not _root.visible
+	if _root.visible:
+		_refresh_status()
+
+
+## extra 有值就显示它（比如\"✓ 已保存\"）；
+## 没值就显示\"存档存不存在、什么时候存的\"。
+func _refresh_status(extra: String = \"\") -> void:
+	if not extra.is_empty():
+		_status.text = extra
+		return
+
+	if not SaveManager.has_save():
+		_status.text = \"当前没有存档\"
+		return
+
+	var unix := FileAccess.get_modified_time(SaveManager.SAVE_PATH)
+	var when := Time.get_datetime_string_from_unix_time(unix, true)   # true = UTC
+	_status.text = \"存档时间：%s（UTC）\" % when
+"
+
+[node name="SaveMenu" type="CanvasLayer" unique_id=714826085]
+layer = 100
+script = SubResource("GDScript_mee7n")
+
+[node name="Root" type="Control" parent="." unique_id=396225896]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="Root" unique_id=1521013045]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Center" type="CenterContainer" parent="Root" unique_id=2069689135]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Box" type="VBoxContainer" parent="Root/Center" unique_id=1195250594]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Root/Center/Box" unique_id=1496872076]
+layout_mode = 2
+text = "存　档"
+horizontal_alignment = 1
+
+[node name="SaveButton" type="Button" parent="Root/Center/Box" unique_id=1639691914]
+custom_minimum_size = Vector2(260, 40)
+layout_mode = 2
+text = "保存存档"
+
+[node name="LoadButton" type="Button" parent="Root/Center/Box" unique_id=168671558]
+custom_minimum_size = Vector2(260, 40)
+layout_mode = 2
+text = "读取存档"
+
+[node name="DeleteButton" type="Button" parent="Root/Center/Box" unique_id=2134420821]
+custom_minimum_size = Vector2(260, 40)
+layout_mode = 2
+text = "删除存档"
+
+[node name="CloseButton" type="Button" parent="Root/Center/Box" unique_id=821734409]
+custom_minimum_size = Vector2(260, 40)
+layout_mode = 2
+text = "关闭（F9）"
+
+[node name="StatusLabel" type="Label" parent="Root/Center/Box" unique_id=1477145793]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+horizontal_alignment = 1

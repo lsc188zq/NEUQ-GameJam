@@ -2,6 +2,10 @@
 extends PopupWindowPanel
 
 @export var options_menu_scene : PackedScene
+## 选存档界面（三个槽位的那个）。在检查器里把 scenes/ui/save_slots.tscn 拖进来。
+##
+## ⚠️ 不拖的话「保存游戏」按钮点了会报警告、弹不出界面。
+@export var save_slot_scene : PackedScene
 ## Path to a main menu scene.
 ## Will use ProjectSettings paths if left empty.
 @export_file("*.tscn") var main_menu_scene_path : String
@@ -78,6 +82,30 @@ func _on_restart_button_pressed() -> void:
 
 func _on_options_button_pressed() -> void:
 	_load_and_show_menu(options_menu_scene)
+
+
+## 「保存游戏」按钮。弹出三槽位的存档界面，模式是【保存】。
+##
+## 为什么不直接用 _load_and_show_menu()：
+##    那个函数没法在"显示之前"给界面设置模式，
+##    而存档界面必须先知道自己是来存的还是来读的，否则标题和灰按钮都是错的。
+func _on_save_button_pressed() -> void:
+	if save_slot_scene == null:
+		push_warning("【暂停菜单】没配 save_slot_scene，把 scenes/ui/save_slots.tscn 拖进检查器那一栏")
+		return
+
+	var slots := save_slot_scene.instantiate() as SaveSlots
+	slots.visible = false
+	add_sibling.call_deferred(slots)
+
+	# 等它进场景树、_ready 跑完，再设模式（set_mode 里会顺便刷新界面文字）
+	await slots.ready
+	slots.set_mode(SaveSlots.Mode.SAVE)
+
+	# 关掉之后自己清理掉，别留一堆实例在场景树里
+	slots.closed.connect(slots.queue_free)
+
+	_show_window(slots)
 
 func _on_main_menu_button_pressed() -> void:
 	_show_window(main_menu_confirmation)

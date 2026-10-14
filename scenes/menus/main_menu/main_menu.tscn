@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dduwkmywithrs"]
 
+[ext_resource type="PackedScene" path="res://scenes/ui/save_slots.tscn" id="2_m0ubd"]
 [ext_resource type="Script" uid="uid://bccqa46wqoqfe" path="res://scenes/menus/main_menu/main_menu.gd" id="2_ub2bi"]
 [ext_resource type="PackedScene" uid="uid://clwg2vr5i17pc" path="res://scenes/windows/main_menu_options_window.tscn" id="3_x31ro"]
 [ext_resource type="PackedScene" uid="uid://bu7nef7g4hi3g" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_0jpat"]
@@ -16,12 +17,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_ub2bi")
-game_scene_path = null
+save_slot_scene = ExtResource("2_m0ubd")
 options_packed_scene = ExtResource("3_x31ro")
 credits_packed_scene = ExtResource("4_0jpat")
-confirm_exit = null
-signal_game_start = null
-signal_game_exit = null
 
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1141822549]
 process_mode = 3
