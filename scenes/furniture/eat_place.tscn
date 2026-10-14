@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b24nw5nyv08me"]
+
+[ext_resource type="PackedScene" uid="uid://n6ulr11mfhv5" path="res://scenes/furniture/desk_wood.tscn" id="1_oycux"]
+[ext_resource type="Texture2D" uid="uid://b7le1mral8ajy" path="res://assets/sprites/furniture/chairs/sofa_purple_03.png" id="2_mk5yx"]
+[ext_resource type="PackedScene" uid="uid://83056kt3ngqq" path="res://scenes/furniture/chair_wood.tscn" id="3_pf7us"]
+[ext_resource type="Texture2D" uid="uid://di4dolpyfu8yj" path="res://assets/sprites/furniture/chairs/chair_wood_18.png" id="4_0j0v5"]
+
+[node name="EatPlace" type="Node2D" unique_id=874291615]
+
+[node name="ChairWood" parent="." unique_id=258851853 instance=ExtResource("1_oycux")]
+z_index = 2
+position = Vector2(-4, 9)
+texture = ExtResource("2_mk5yx")
+
+[node name="ChairWood3" parent="." unique_id=1450340035 instance=ExtResource("1_oycux")]
+z_index = 2
+position = Vector2(18, 9)
+texture = ExtResource("2_mk5yx")
+
+[node name="ChairWood2" parent="." unique_id=2132103463 instance=ExtResource("3_pf7us")]
+z_index = 1
+position = Vector2(-8, -1)
+texture = ExtResource("4_0j0v5")
+
+[node name="ChairWood4" parent="." unique_id=1138279411 instance=ExtResource("3_pf7us")]
+z_index = 1
+position = Vector2(20, -1)
+texture = ExtResource("4_0j0v5")
+
+[node name="ChairWood5" parent="." unique_id=1529764471 instance=ExtResource("3_pf7us")]
+z_index = 1
+position = Vector2(6, -1)
+texture = ExtResource("4_0j0v5")

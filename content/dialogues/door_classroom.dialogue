@@ -1,10 +1,28 @@
 using GameState
+using QuestBook
 using Travel
 
 ~ start
-要去外面吗
-- 还是算了吧。
-- 要去 => leave
+# 门禁规则：下面列的任务【全部做完】才能出去。
+#
+# ⚠️ 这里踩过三次坑，别再犯：
+#   ① 不要用 QuestBook.is_active("...")：
+#      任务一旦【完成】就掉出“进行中”，is_active 变 false，门反而锁死。
+#   ② 不要用 QuestBook.has_unfinished()：
+#      它会把“离开这个教室”自己也算进去 —— 死锁：
+#      不出去就完不成它，它不完不成你就出不去。
+#   ③ is_done() 的好处：**没接过的任务也算“没完成”**，照样拦着。
+#      这正好符合“不管有没有接收，先做完再说”。
+#
+# 想加/减门禁任务 → 改下面这一行就行。
+if QuestBook.is_done("去见学长") and QuestBook.is_done("帮学长找钥匙"):
+	要去外面吗
+	# 每个选项都要写 =>，不写会往下走掉进 ~ leave
+	- 还是算了吧。 => END
+	- 要去 => leave
+else:
+	学长好像还有话没说完，现在出去不太合适。
+	=> END
 
 ~ leave
 $> GameState.set_flag("离开教室", true)

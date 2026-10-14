@@ -1,0 +1,10 @@
+using Travel
+
+~ start
+要去食堂吗？
+- 还是算了吧。 => END
+- 要去 => leave
+
+~ leave
+$> Travel.go("canteen", "门口")
+=> END

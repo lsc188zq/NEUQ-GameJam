@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://5tj36umeekg4" path="res://scripts/ui/inventory_hud.gd" id="8_j2gmx"]
 [ext_resource type="Script" uid="uid://d1n4c2tf0ggk1" path="res://scripts/ui/quest_hud.gd" id="9_1yooq"]
 [ext_resource type="PackedScene" uid="uid://dvd6jddsvusyw" path="res://scenes/rooms/hallway.tscn" id="9_gb53w"]
+[ext_resource type="PackedScene" uid="uid://g3eab0su8lfk" path="res://scenes/rooms/canteen.tscn" id="10_gb53w"]
 
 [node name="World" type="Node2D" unique_id=1917351806]
 y_sort_enabled = true
@@ -48,4 +49,4 @@ script = ExtResource("8_j2gmx")
 [node name="Room" type="Node2D" parent="." unique_id=865889325]
 y_sort_enabled = true
 script = ExtResource("7_j2gmx")
-rooms = Array[PackedScene]([ExtResource("6_t5ptc"), ExtResource("9_gb53w")])
+rooms = Array[PackedScene]([ExtResource("6_t5ptc"), ExtResource("9_gb53w"), ExtResource("10_gb53w")])

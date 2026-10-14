@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dqql7uj4vau14" path="res://assets/tilesets/Room_Builder_free_16x16.png" id="1_e1y8y"]
 [ext_resource type="Texture2D" uid="uid://ck30b6funho0w" path="res://assets/tilesets/Interiors_free_16x16.png" id="2_4da66"]
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_e1y8y"]
+tile_data = PackedInt32Array(0, 786432, 10, 65536, 786432, 10, 1, 786432, 10, 65537, 786432, 10)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6vy81"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xbbn8"]
@@ -1574,3 +1577,4 @@ physics_layer_0/collision_mask = 0
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_6vy81")
 sources/0 = SubResource("TileSetAtlasSource_xbbn8")
 sources/1 = SubResource("TileSetAtlasSource_4d7cl")
+pattern_0 = SubResource("TileMapPattern_e1y8y")

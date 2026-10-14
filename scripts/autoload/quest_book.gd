@@ -100,3 +100,18 @@ func is_active(quest_name: String) -> bool:
 func is_done(quest_name: String) -> bool:
 	var quest := get_quest(quest_name)
 	return quest != null and QuestSystem.is_quest_completed(quest)
+
+
+## 现在【还有没有没做完的任务】？
+##
+## 用法：做那种"事情没办完就别乱跑"的门禁 -
+##     [if QuestBook.has_unfinished() /]
+##
+## ⚠️ 注意它和 is_active("某个任务") 的区别：
+##     is_active("A") 问的是"A 在做吗"，做完就变 false；
+##     has_unfinished() 问的是"【任何】任务还挂着吗"。
+##
+##     做门禁要用后者 —— 用 is_active 的话，
+##     任务一完成玩家反而出不去了（这是个真实的 bug）。
+func has_unfinished() -> bool:
+	return not QuestSystem.get_active_quests().is_empty()

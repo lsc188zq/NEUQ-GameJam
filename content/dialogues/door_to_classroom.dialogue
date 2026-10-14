@@ -1,9 +1,9 @@
 using Travel
 
 ~ start
-要回教室吗
-- 还是算了吧。
-- 要回去 => leave
+要去教室吗
+- 还是算了吧。 => END
+- 要去 => leave
 
 ~ leave
 $> Travel.go("classroom", "门口")
