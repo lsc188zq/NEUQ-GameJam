@@ -28,17 +28,31 @@ extends Node
 ##    让玩家知道自己在覆盖什么。
 
 
-## 一共几个存档位。改这里就能加减（UI 那边会自动跟着变）。
+## 一共几个【手动】存档位。改这里就能加减（UI 那边会自动跟着变）。
 const SLOT_COUNT := 3
+
+## 【自动存档】专用的槽位。
+##
+## ⚠️ 故意用 0 —— 因为手动槽位是 1..SLOT_COUNT，
+##    存档界面只循环 1..SLOT_COUNT，所以这一位【自动不会出现在界面上】，
+##    不用额外写"跳过自动存档"的逻辑。
+##
+## 什么时候写它：玩家走过门换房间时（见 room_manager.gd）。
+## 用途：意外退出/崩溃之后，能回到刚才那个房间。
+const AUTO_SLOT := 0
 
 ## 存档文件的路径格式。%d 会换成槽位号。
 const SAVE_PATH_FORMAT := "user://save_%d.json"
 
-## 房间的【显示名】。存档列表上要显示"在哪个房间"，总不能显示 classroom。
-## ⚠️ 做了新房间，记得来这里加一行。
+## 房间的【显示名】。存档列表上要显示"在哪个房间"，总不能显示 canteen。
+##
+## ⚠️ 做了新房间，一定要来这里加一行。
+##    忘了加不会报错，只会在存档界面上显示成英文文件名 ——
+##    所以 save_game() 里有一句警告帮你发现。
 const ROOM_LABELS := {
 	"classroom": "教室",
 	"hallway": "走廊",
+	"canteen": "食堂",
 }
 
 ## 读档完成了。
@@ -143,17 +157,45 @@ func start_new_game() -> void:
 	QuestSystem.active.reset()
 	QuestSystem.completed.reset()
 
-	print("【SaveManager】开新游戏，状态已清空（存档文件没动）")
+	# ⚠️ 清空之后【必须】把"开局任务"重新接一遍。
+	#
+	# 不接的后果很隐蔽：那些任务不在 active 池里，
+	# 而 QuestTracker 只更新【在 active 池里】的任务 ——
+	# 于是它们永远不会完成，HUD 上也不会出现。
+	# 表现出来就是"点了新游戏，第一个任务不见了"，
+	# 以及"明明做完了该做的事，门还是不开"。
+	QuestBook.start_opening_quests()
+
+	# ⚠️ 自动存档【要删掉】。
+	#
+	# 它是"上一局的现场"。留着的话，下次开机点"继续游戏"
+	# 会读到上一局的位置，玩家会一脸问号。
+	#
+	# 手动存档位（1..3）依然【不删】—— 点错了"新的游戏"还能回去读。
+	delete_save(AUTO_SLOT)
+
+	print("【SaveManager】开新游戏：状态已清空，自动存档已删，手动存档没动")
 
 
 # ═══════════════════════════════════════════════════
 #  存
 # ═══════════════════════════════════════════════════
 
+## 存到某个槽位。
+##
+## slot 传什么：
+##   -1（默认）    → 用"当前槽"（current_slot）
+##   AUTO_SLOT(0)  → 自动存档位【不影响当前槽】
+##   1..SLOT_COUNT → 玩家在存档界面上选的位
 func save_game(slot: int = -1) -> void:
-	if slot < 1:
-		slot = current_slot          # 不指定就用当前槽（换房间自动存档走这条）
-	current_slot = slot
+	if slot < 0:
+		slot = current_slot
+
+	# ⚠️ 只有【玩家手动选的槽】才更新"当前槽"。
+	#    自动存档不能改它 —— 否则你手动存在 2 号位，
+	#    走两步路之后"当前槽"就被自动存档顶掉了。
+	if slot != AUTO_SLOT:
+		current_slot = slot
 
 	# ⚠️ 先记录玩家现在站在哪，再存。
 	#    不然存的是"上一次换房间时"的旧位置。
@@ -180,6 +222,11 @@ func save_game(slot: int = -1) -> void:
 	file.close()
 
 	print("【SaveManager】已存到 %d 号位（房间=%s，位置=%s）" % [slot, GameState.current_room, GameState.player_position])
+
+	# 房间没配中文显示名的话，存档界面上会直接显示英文文件名（比如 canteen）。
+	# 那种"看起来没坏但就是不对劲"的问题最难发现，所以这里主动喊一声。
+	if not ROOM_LABELS.has(GameState.current_room):
+		push_warning("【SaveManager】房间「%s」还没配中文显示名，存档列表上会显示成英文。去 save_manager.gd 的 ROOM_LABELS 里加一行。" % GameState.current_room)
 
 
 # ═══════════════════════════════════════════════════

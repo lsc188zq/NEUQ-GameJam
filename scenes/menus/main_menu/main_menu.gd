@@ -49,9 +49,6 @@ func _on_new_game_button_pressed() -> void:
 ## ⚠️ 这里【不读档】—— 读哪个槽由玩家在界面里点。
 ##    读档和进游戏都在界面的 load_done 信号里做（见下面那行 connect）。
 func _on_load_game_button_pressed() -> void:
-	if save_slot_scene == null:
-		push_warning("【主菜单】没配 save_slot_scene，把 scenes/ui/save_slots.tscn 拖进检查器那一栏")
-		return
 
 	if not _has_any_save():
 		load_game_button.disabled = true

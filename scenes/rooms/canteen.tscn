@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b24nw5nyv08me" path="res://scenes/furniture/eat_place.tscn" id="2_q06jd"]
 [ext_resource type="PackedScene" uid="uid://hegta1t6phho" path="res://scenes/furniture/bilu.tscn" id="3_4lb6c"]
+[ext_resource type="Resource" uid="uid://bpybm1fqinx8h" path="res://door_from_canteen.dialogue" id="5_x3dd7"]
 [ext_resource type="TileSet" uid="uid://c1r8ggofa7sih" path="res://assets/tilesets/room_tileset.tres" id="28_um6w1"]
 [ext_resource type="PackedScene" uid="uid://btwpg4gy8aeq4" path="res://scenes/furniture/door.tscn" id="29_j62la"]
 
@@ -65,6 +66,7 @@ collision_enabled = false
 
 [node name="Door" parent="." unique_id=258851853 instance=ExtResource("29_j62la")]
 position = Vector2(126, -113)
+dialogue = ExtResource("5_x3dd7")
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=1940693039]
 

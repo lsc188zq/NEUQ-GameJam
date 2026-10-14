@@ -35,7 +35,7 @@ var _by_name: Dictionary = {}
 
 func _ready() -> void:
 	_index()
-	_start_opening_quests()
+	start_opening_quests()
 	# 启动时打一行，方便一眼看出"我的任务登记上没有"。
 	# 成员新加了一个任务 .tres 却忘了拖进 all_quests 时，看这行就知道了。
 	print("【QuestBook】已登记 %d 个任务：%s" % [_by_name.size(), ", ".join(_by_name.keys())])
@@ -55,7 +55,16 @@ func _index() -> void:
 		_by_name[quest.quest_name] = quest
 
 
-func _start_opening_quests() -> void:
+## 把【开局任务】重新接一遍。
+##
+## 什么时候会用：
+##   ① 游戏刚启动（_ready 里自动调）
+##   ② 玩家点「新的游戏」—— SaveManager.start_new_game() 会调它
+##
+## ⚠️ 为什么必须公开：清空任务池（开新游戏）之后，
+##    这些"开局就挂着"的任务得重新接上，否则它们【永远不会完成】——
+##    QuestTracker 只更新【在 active 池里】的任务。
+func start_opening_quests() -> void:
 	for quest in opening_quests:
 		if quest != null:
 			QuestSystem.start_quest(quest)

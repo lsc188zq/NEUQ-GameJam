@@ -1,25 +1,41 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://dfgws4d47v7oc"]
 
-[ext_resource type="PackedScene" path="res://addons/maaacks_menus_template/base/nodes/windows/popup_window_panel.tscn" id="1_base"]
-[ext_resource type="Script" path="res://scripts/ui/save_slots.gd" id="2_script"]
+[ext_resource type="PackedScene" uid="uid://6gdbfi0172ji" path="res://addons/maaacks_menus_template/base/nodes/windows/popup_window_panel.tscn" id="1_base"]
+[ext_resource type="Script" uid="uid://pwrfhhoke5a4" path="res://scripts/ui/save_slots.gd" id="2_script"]
 
-[node name="SaveSlots" instance=ExtResource("1_base")]
+[node name="SaveSlots" unique_id=1858809186 instance=ExtResource("1_base")]
+process_mode = 3
+script = ExtResource("2_script")
+pauses_game = true
 title = "存　档"
 close_button_text = "取消"
-pauses_game = true
-script = ExtResource("2_script")
 
-[node name="Slot1Button" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" parent_id_path=PackedInt32Array(1371114575) index="0"]
+[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" parent_id_path=PackedInt32Array(1788474031) index="0" unique_id=1049966061]
+text = "存档"
+
+[node name="AutoSlotButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" parent_id_path=PackedInt32Array(1371114575) index="0" unique_id=1236772393]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 36)
+layout_mode = 2
+text = "自动存档"
+
+[node name="Slot1Button" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" parent_id_path=PackedInt32Array(1371114575) index="1" unique_id=1120315152]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 36)
+layout_mode = 2
 text = "① （空）"
 
-[node name="Slot2Button" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" parent_id_path=PackedInt32Array(1371114575) index="1"]
+[node name="Slot2Button" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" parent_id_path=PackedInt32Array(1371114575) index="2" unique_id=2046862071]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 36)
+layout_mode = 2
 text = "② （空）"
 
-[node name="Slot3Button" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" parent_id_path=PackedInt32Array(1371114575) index="2"]
+[node name="Slot3Button" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" parent_id_path=PackedInt32Array(1371114575) index="3" unique_id=942900890]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 36)
+layout_mode = 2
 text = "③ （空）"
+
+[node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" parent_id_path=PackedInt32Array(1371114575) index="4" unique_id=314526102]
+text = "关闭"

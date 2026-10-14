@@ -85,7 +85,9 @@ func _on_go_requested(room_name: String, spawn_name: String) -> void:
 	# ⚠️ 只有【Travel 触发的】才存 —— 也就是玩家自己走过去的那次。
 	#    开局装房间不存：那是"进场"，不是"玩家做了什么"。
 	#    （而且读档进来立刻又覆盖存档，纯属白写。）
-	SaveManager.save_game()
+	# 存到【自动存档位】（0 号），不是玩家的手动存档位。
+	# 这样"我手动存的档"不会被走路覆盖掉。
+	SaveManager.save_game(SaveManager.AUTO_SLOT)
 
 
 ## 换房间。卸载旧的、装上新的、挪玩家。

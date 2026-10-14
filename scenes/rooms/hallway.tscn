@@ -12,11 +12,11 @@ y_sort_enabled = true
 [node name="Furniture" type="Node2D" parent="." unique_id=887340362]
 y_sort_enabled = true
 
-[node name="PlantPalm2" parent="Furniture" unique_id=1761986098 instance=ExtResource("1_vl156")]
-position = Vector2(-120, 31)
+[node name="PlantPalm3" parent="Furniture" unique_id=238542061 instance=ExtResource("1_vl156")]
+position = Vector2(-175, 32)
 
-[node name="PlantPalm3" parent="Furniture/PlantPalm2" unique_id=238542061 instance=ExtResource("1_vl156")]
-position = Vector2(-41, -3)
+[node name="PlantPalm2" parent="Furniture" unique_id=1761986098 instance=ExtResource("1_vl156")]
+position = Vector2(-112, 32)
 
 [node name="Door to classroom" parent="Furniture" unique_id=258851853 instance=ExtResource("1_au2at")]
 position = Vector2(116, -65)
