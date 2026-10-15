@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bpybm1fqinx8h"
+path="res://.godot/imported/door_from_canteen.dialogue-f0bb66fd83954688c6276032c76f52eb.tres"
+
+[deps]
+
+source_file="res://content/dialogues/door_from_canteen.dialogue"
+dest_files=["res://.godot/imported/door_from_canteen.dialogue-f0bb66fd83954688c6276032c76f52eb.tres"]
+
+[params]
+
+defaults=true

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://btwpg4gy8aeq4" path="res://scenes/furniture/door.tscn" id="1_au2at"]
 [ext_resource type="PackedScene" uid="uid://dqgqgs4eynh8u" path="res://scenes/furniture/plant_palm.tscn" id="1_vl156"]
 [ext_resource type="Resource" uid="uid://y5l10hh2aofy" path="res://content/dialogues/door_to_classroom.dialogue" id="2_qew3q"]
-[ext_resource type="Resource" uid="uid://dm8o2ye6wtyjm" path="res://door_to_canteen.dialogue" id="3_qew3q"]
+[ext_resource type="Resource" uid="uid://dm8o2ye6wtyjm" path="res://content/dialogues/door_to_canteen.dialogue" id="3_qew3q"]
 [ext_resource type="TileSet" uid="uid://c1r8ggofa7sih" path="res://assets/tilesets/room_tileset.tres" id="3_vl156"]
 
 [node name="Hallway" type="Node2D" unique_id=421186883]

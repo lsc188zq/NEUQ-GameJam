@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://hegta1t6phho"]
+
+[ext_resource type="Script" uid="uid://brkbwoil4jj0k" path="res://scripts/components/furniture_item.gd" id="1_qvlfg"]
+[ext_resource type="Texture2D" uid="uid://d3ynp2acnu35s" path="res://assets/sprites/furniture/decor/fireplace_01.png" id="2_7skib"]
+[ext_resource type="Resource" uid="uid://bax3doo56k177" path="res://content/dialogues/bookshelf.dialogue" id="3_8yxeb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccsgw"]
+size = Vector2(32, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yx1x2"]
+size = Vector2(48, 56)
+
+[node name="fireplace" type="StaticBody2D" unique_id=455407161]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_qvlfg")
+texture = ExtResource("2_7skib")
+dialogue = ExtResource("3_8yxeb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=972927010]
+texture = ExtResource("2_7skib")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2032063069]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_ccsgw")
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=1390926807]
+visible = false
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=245515481]
+visible = false
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_yx1x2")
