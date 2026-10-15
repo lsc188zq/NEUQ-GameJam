@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://brkbwoil4jj0k" path="res://scripts/components/furniture_item.gd" id="1_qvlfg"]
 [ext_resource type="Texture2D" uid="uid://d3ynp2acnu35s" path="res://assets/sprites/furniture/decor/fireplace_01.png" id="2_7skib"]
-[ext_resource type="Resource" uid="uid://bax3doo56k177" path="res://content/dialogues/bookshelf.dialogue" id="3_8yxeb"]
+[ext_resource type="Resource" uid="uid://caa7hv6sps6ki" path="res://content/dialogues/fireplace.dialogue" id="3_qvlfg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccsgw"]
 size = Vector2(32, 10)
@@ -15,7 +15,7 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_qvlfg")
 texture = ExtResource("2_7skib")
-dialogue = ExtResource("3_8yxeb")
+dialogue = ExtResource("3_qvlfg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=972927010]
 texture = ExtResource("2_7skib")
